@@ -2,14 +2,18 @@
 import { useState, useEffect } from "react";
 import { getDataAsObject, getTableTitles } from "@/Utils/googleSheets";
 
-type ApiResponse = string[][];
+export type GoogleSheetData = string[];
 
-type UseGoogleSheetData = {
+export type ApiResponse = string[][];
+
+export type UseGoogleSheetData = {
   loading: boolean;
   error: string | null;
   tableTitles: string[];
   tableData: Record<string, string>[];
 };
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const useGoogleSheetData = (): UseGoogleSheetData => {
   const [loading, setLoading] = useState(true);
@@ -40,7 +44,7 @@ const useGoogleSheetData = (): UseGoogleSheetData => {
 };
 
 const getData = async (): Promise<ApiResponse> => {
-  const res = await fetch("http://localhost:3000/api/googleSheet");
+  const res = await fetch(`${API_URL}/googleSheet`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
