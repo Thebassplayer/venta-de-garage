@@ -18,7 +18,7 @@ export async function GET(req: Request, res: Response) {
       "https://www.googleapis.com/auth/spreadsheets",
     ]);
 
-    client.authorize(async function (err, tokens) {
+    client.authorize(async function (err) {
       if (err) {
         return new Response(JSON.stringify(err), {
           status: 500,
