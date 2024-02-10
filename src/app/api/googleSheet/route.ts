@@ -8,7 +8,7 @@ export async function GET(req: Request, res: Response) {
   try {
     if (!client_email || !private_key || !spreadsheetId) {
       return new Response(
-        JSON.stringify({ error: "Missing environment variables" }),
+        JSON.stringify({ message: "Missing environment variables" }),
         {
           status: 500,
         }
@@ -18,12 +18,6 @@ export async function GET(req: Request, res: Response) {
       "https://www.googleapis.com/auth/spreadsheets",
     ]);
 
-    if (!client) {
-      return new Response(JSON.stringify({ error: "Failed to authenticate" }), {
-        status: 500,
-      });
-    }
-
     client.authorize(async function (err, tokens) {
       if (err) {
         return new Response(JSON.stringify(err), {
@@ -31,6 +25,14 @@ export async function GET(req: Request, res: Response) {
         });
       }
     });
+    if (!client) {
+      return new Response(
+        JSON.stringify({ message: "Failed to authenticate" }),
+        {
+          status: 500,
+        }
+      );
+    }
     const gsapi = google.sheets({ version: "v4", auth: client });
 
     const opt = {
@@ -39,12 +41,14 @@ export async function GET(req: Request, res: Response) {
     };
 
     const data = await gsapi.spreadsheets.values.get(opt);
+    console.log(data.data.values);
 
     return new Response(JSON.stringify(data.data.values), {
       status: 200,
     });
-  } catch (e) {
-    return new Response(JSON.stringify(e), {
+  } catch (error) {
+    console.log(error);
+    return new Response(JSON.stringify(error), {
       status: 500,
     });
   }
