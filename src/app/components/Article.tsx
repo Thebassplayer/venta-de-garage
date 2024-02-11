@@ -1,4 +1,4 @@
-const Article = (article: UseGoogleSheetData) => {
+const Article = (article: any) => {
   return <div>Article</div>;
 };
 

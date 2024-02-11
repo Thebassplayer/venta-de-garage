@@ -15,12 +15,13 @@ export default function Home() {
   }
 
   return (
-    <main className="">
-      <h1>Google Sheet Data</h1>
+    <main className="p-3">
+      <h1 className="text-center text-2xl py-4">Venta de Garage</h1>
       <div className="grid grid-cols-4 gap-4">
-        {tableData.map((article, index) => (
-          <Card key={index} article={article} />
-        ))}
+        {tableData.map((article, index) => {
+          if (article.vendido === "TRUE") return;
+          return <Card key={index} article={article} />;
+        })}
       </div>
     </main>
   );

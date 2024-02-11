@@ -37,11 +37,10 @@ export async function GET(req: Request, res: Response) {
 
     const opt = {
       spreadsheetId,
-      range: "Sheet1!A2:L34",
+      range: "Sheet1!A2:L42",
     };
 
     const data = await gsapi.spreadsheets.values.get(opt);
-    console.log(data.data.values);
 
     return new Response(JSON.stringify(data.data.values), {
       status: 200,

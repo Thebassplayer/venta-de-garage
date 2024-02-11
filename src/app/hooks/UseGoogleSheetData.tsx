@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { getDataAsObject, getTableTitles } from "@/Utils/googleSheets";
+import { Article } from "../types";
 
 export type GoogleSheetData = string[];
 
@@ -39,6 +40,7 @@ const useGoogleSheetData = (): UseGoogleSheetData => {
 
     fetchData();
   }, []);
+  console.table(tableData);
 
   return { loading, error, tableTitles, tableData };
 };

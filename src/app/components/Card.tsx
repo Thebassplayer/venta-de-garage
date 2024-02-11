@@ -1,21 +1,30 @@
 import Image from "next/image";
 import React from "react";
+import { Article } from "../types";
+import { CldImage } from "next-cloudinary";
 
-const Card = (article: any) => {
-  console.log(article.article.Titulo);
+export type CardProps = {
+  article: Article;
+};
+
+const defaultImage = "venta_garage/e9f01hh4kutrdbsen9bs";
+
+const Card = (article: CardProps) => {
+  const firstImage = article.article.imagen1
+    ? article.article.imagen1
+    : defaultImage;
+
   return (
-    <a href="#" className="block dark:bg-white">
-      <img
-        alt=""
-        src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-        className="h-64 w-full object-cover sm:h-80 lg:h-96"
-      />
+    <a href="#" className="block dark:bg-white p-4 rounded-sm">
+      <div className="h-64 w-full object-cover sm:h-80 lg:h-96 relative">
+        <CldImage fill src={firstImage} alt={"artwork.alt"} crop="fill" />
+      </div>
 
       <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">
-        {article.article.Titulo}
+        {article.article.titulo}
       </h3>
 
-      <p className="mt-2 max-w-sm text-gray-700">{article.article.Detalle}</p>
+      <p className="mt-2 max-w-sm text-gray-700">{article.article.detalles}</p>
     </a>
   );
 };
