@@ -19,10 +19,14 @@ const Card = (article: CardProps) => {
       <div className="h-64 w-full object-cover sm:h-80 lg:h-96 relative">
         <CldImage fill src={firstImage} alt={"artwork.alt"} crop="fill" />
       </div>
-
-      <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">
-        {article.article.titulo}
-      </h3>
+      <div className="flex mt-4 justify-between">
+        <h3 className="text-lg font-bold text-gray-900 sm:text-xl">
+          {article.article.titulo}
+        </h3>
+        <p className="text-lg font-bold text-gray-900 sm:text-xl">
+          {article.article.precio}
+        </p>
+      </div>
 
       <p className="mt-2 max-w-sm text-gray-700">{article.article.detalles}</p>
     </a>
