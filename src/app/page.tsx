@@ -20,7 +20,7 @@ export default function Home() {
       <div className="grid grid-cols-4 gap-4">
         {tableData.map((article, index) => {
           if (article.vendido === "TRUE") return;
-          return <Card key={index} article={article} />;
+          return <Card key={index} article={article as any} />;
         })}
       </div>
     </main>
