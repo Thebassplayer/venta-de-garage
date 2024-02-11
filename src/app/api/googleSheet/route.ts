@@ -1,10 +1,10 @@
 import { google } from "googleapis";
 
-const client_email = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
-const private_key = process.env.GOOGLE_SHEETS_PRIVATE_KEY;
-const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
-
 export async function GET(req: Request, res: Response) {
+  const client_email = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
+  const private_key = process.env.GOOGLE_SHEETS_PRIVATE_KEY;
+  const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+
   try {
     if (!client_email || !private_key || !spreadsheetId) {
       return new Response(
