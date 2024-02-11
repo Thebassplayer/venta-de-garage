@@ -1,6 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
-import { getDataAsObject, getTableTitles } from "@/Utils/googleSheets";
+import {
+  getDataAsObject,
+  getTableTitles,
+} from "@/Utils/googleSheets/dataManipulation";
 
 export type GoogleSheetData = string[];
 
