@@ -13,6 +13,9 @@ const Card = ({ article }: CardProps) => {
   const firstImage = article.imagen1 ? article.imagen1 : defaultImage;
   const title = article.titulo ? article.titulo : "Artículo sin título";
   const price = article.precio ? article.precio : "Precio no disponible";
+  const detail = article.detalles
+    ? article.detalles
+    : "Detalles no disponibles";
 
   return (
     <a href="#" className="block dark:bg-white p-4 rounded-sm">
@@ -24,7 +27,7 @@ const Card = ({ article }: CardProps) => {
         <p className="text-lg font-bold text-gray-900 sm:text-xl">{price}</p>
       </div>
 
-      <p className="mt-2 max-w-sm text-gray-700">{article.article.detalles}</p>
+      <p className="mt-2 max-w-sm text-gray-700">{detail}</p>
     </a>
   );
 };
