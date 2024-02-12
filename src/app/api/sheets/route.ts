@@ -1,6 +1,6 @@
 import { google } from "googleapis";
 
-export const GET = async (req: Request, res: Response) => {
+export const GET = async (req: Request) => {
   const client_email = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
   const private_key = process.env.GOOGLE_SHEETS_PRIVATE_KEY;
   const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
