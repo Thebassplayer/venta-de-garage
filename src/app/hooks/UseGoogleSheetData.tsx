@@ -61,7 +61,7 @@ const useGoogleSheetData = (): UseGoogleSheetData => {
 };
 
 const getData = async (): Promise<ApiResponse> => {
-  const res = await fetch(`${API_URL}/googlesheet`);
+  const res = await fetch(`api/googlesheet`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
