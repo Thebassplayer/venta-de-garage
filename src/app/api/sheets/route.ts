@@ -47,7 +47,7 @@ export const GET = async (req: Request, res: Response) => {
     });
   } catch (error) {
     console.log(error);
-    return new Response(JSON.stringify(error), {
+    return new Response(JSON.stringify(`ERROR: ${error}`), {
       status: 500,
     });
   }
