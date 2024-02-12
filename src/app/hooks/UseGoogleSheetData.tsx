@@ -28,11 +28,25 @@ const useGoogleSheetData = (): UseGoogleSheetData => {
     const fetchData = async () => {
       try {
         const data: ApiResponse = await getData();
-        const titles = getTableTitles(data);
-        const rowData = getDataAsObject(data);
+        console.log(data);
+        const rows: Record<string, string>[] = [];
+        const rawRows: string[][] = data || [[]];
+        const headers: string[] = rawRows.shift() || [];
 
-        setTableTitles(titles);
-        setTableData(rowData);
+        for (const row of rawRows) {
+          const rowData = row.reduce<Record<string, string>>(
+            (acc, cell, index) => {
+              acc[headers[index]] = cell;
+              return acc;
+            },
+            {}
+          );
+
+          rows.push(rowData);
+        }
+
+        setTableTitles(headers);
+        setTableData(rows);
       } catch (error: any) {
         setError(error.message || "Failed to fetch data");
       } finally {
@@ -42,7 +56,6 @@ const useGoogleSheetData = (): UseGoogleSheetData => {
 
     fetchData();
   }, []);
-  console.table(tableData);
 
   return { loading, error, tableTitles, tableData };
 };
