@@ -25,7 +25,7 @@ const useGoogleSheetData = (): UseGoogleSheetData => {
   useEffect(() => {
     const fetchData = async () => {
       const getData = async (): Promise<ApiResponse> => {
-        const res = await fetch("api/googlesheet");
+        const res = await fetch("api/sheets");
         if (!res.ok) {
           throw new Error("Failed to fetch data");
         }
