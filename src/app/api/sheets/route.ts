@@ -20,7 +20,7 @@ export const GET = async (req: Request, res: Response) => {
 
     client.authorize(async function (err) {
       if (err) {
-        return new Response(JSON.stringify(err), {
+        return new Response(JSON.stringify(`Google Auth error: ${err}`), {
           status: 500,
         });
       }
