@@ -16,8 +16,6 @@ export type UseGoogleSheetData = {
   tableData: Record<string, string>[];
 };
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
 const useGoogleSheetData = (): UseGoogleSheetData => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -28,7 +26,6 @@ const useGoogleSheetData = (): UseGoogleSheetData => {
     const fetchData = async () => {
       try {
         const data: ApiResponse = await getData();
-        console.log(data);
         const rows: Record<string, string>[] = [];
         const rawRows: string[][] = data || [[]];
         const headers: string[] = rawRows.shift() || [];
@@ -61,7 +58,7 @@ const useGoogleSheetData = (): UseGoogleSheetData => {
 };
 
 const getData = async (): Promise<ApiResponse> => {
-  const res = await fetch(`api/googlesheet`);
+  const res = await fetch("api/googlesheet");
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
