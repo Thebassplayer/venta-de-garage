@@ -9,10 +9,10 @@ export type CardProps = {
 
 const defaultImage = "venta_garage/e9f01hh4kutrdbsen9bs";
 
-const Card = (article: CardProps) => {
-  const firstImage = article.article.imagen1
-    ? article.article.imagen1
-    : defaultImage;
+const Card = ({ article }: CardProps) => {
+  const firstImage = article.imagen1 ? article.imagen1 : defaultImage;
+  const title = article.titulo ? article.titulo : "Artículo sin título";
+  const price = article.precio ? article.precio : "Precio no disponible";
 
   return (
     <a href="#" className="block dark:bg-white p-4 rounded-sm">
@@ -20,12 +20,8 @@ const Card = (article: CardProps) => {
         <CldImage fill src={firstImage} alt={"artwork.alt"} crop="fill" />
       </div>
       <div className="flex mt-4 justify-between">
-        <h3 className="text-lg font-bold text-gray-900 sm:text-xl">
-          {article.article.titulo}
-        </h3>
-        <p className="text-lg font-bold text-gray-900 sm:text-xl">
-          {article.article.precio}
-        </p>
+        <h3 className="text-lg font-bold text-gray-900 sm:text-xl">{title}</h3>
+        <p className="text-lg font-bold text-gray-900 sm:text-xl">{price}</p>
       </div>
 
       <p className="mt-2 max-w-sm text-gray-700">{article.article.detalles}</p>
