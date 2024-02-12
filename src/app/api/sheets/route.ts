@@ -14,9 +14,12 @@ export const GET = async (req: Request) => {
         }
       );
     }
-    const client = new google.auth.JWT(client_email, undefined, private_key, [
-      "https://www.googleapis.com/auth/spreadsheets",
-    ]);
+    const client = new google.auth.JWT(
+      client_email,
+      undefined,
+      private_key.split(String.raw`\n`).join("\n"),
+      ["https://www.googleapis.com/auth/spreadsheets"]
+    );
 
     client.authorize(async function (err) {
       if (err) {
