@@ -74,6 +74,7 @@ export const GET = async (req: Request) => {
       });
     }
 
+    // Find the article by slug
     const articleArray = findArticleBySlug(slug, articles);
 
     if (!articleArray) {
@@ -86,7 +87,6 @@ export const GET = async (req: Request) => {
     }
 
     // Transform the array into an object
-
     const article = articleArraytoObject(titles, articleArray);
 
     return new Response(JSON.stringify(article), {

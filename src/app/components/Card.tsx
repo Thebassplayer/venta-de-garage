@@ -21,7 +21,13 @@ const Card = ({ article }: CardProps) => {
   return (
     <a href={`/article/${slug}`} className="block dark:bg-white p-4 rounded-sm">
       <div className="h-64 w-full object-cover sm:h-80 lg:h-96 relative">
-        <CldImage fill src={firstImage} alt={"artwork.alt"} crop="fill" />
+        <CldImage
+          height={400}
+          width={400}
+          src={firstImage}
+          alt={"artwork.alt"}
+          crop="fill"
+        />
       </div>
       <div className="flex mt-4 justify-between">
         <h3 className="text-lg font-bold text-gray-900 sm:text-xl">{title}</h3>

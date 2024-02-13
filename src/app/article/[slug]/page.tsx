@@ -42,43 +42,32 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   const { titulo, marca, modelo, detalles, precio, imagen1, imagen2, imagen3 } =
     articleData;
 
+  console.log(imagen1, imagen2, imagen3);
+
   return (
     <div className="h-screen w-screen">
       <h1 className="text-center text-2xl">{titulo}</h1>
-      <div className="mx-10 w-full object-cover h-1/2 grid grid-cols-3 gap-4">
-        <div className="relative">
-          <CldImage
-            height={300}
-            width={300}
-            src={imagen1}
-            alt={titulo}
-            crop="fill"
-          />
-        </div>
-        <div className="relative">
-          <CldImage
-            height={300}
-            width={300}
-            src={imagen2}
-            alt={titulo}
-            crop="fill"
-          />
-        </div>
-        <div className="relative">
-          <CldImage
-            height={300}
-            width={300}
-            src={imagen3}
-            alt={titulo}
-            crop="fill"
-          />
-        </div>
+      <div className="px-10 w-full object-cover h-1/2 grid grid-cols-3 gap-4">
+        {[imagen1, imagen2, imagen3].map((imagen, index) => (
+          <div
+            key={index}
+            className="relative flex justify-center items-center"
+          >
+            <CldImage
+              height={300}
+              width={300}
+              src={imagen}
+              alt={titulo}
+              crop="fill"
+            />
+          </div>
+        ))}
       </div>
       <div>
-        <p>Marca: {articleData.marca}</p>
-        <p>Modelo: {articleData.modelo}</p>
-        <p>Detalle: {articleData.detalles}</p>
-        <p>Precio: {articleData.precio}</p>
+        <p>Marca: {marca}</p>
+        <p>Modelo: {modelo}</p>
+        <p>Detalle: {detalles}</p>
+        <p>Precio: {precio}</p>
       </div>
     </div>
   );

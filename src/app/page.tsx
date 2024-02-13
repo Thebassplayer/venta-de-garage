@@ -6,8 +6,6 @@ import Card from "./components/Card";
 export default function Home() {
   const { loading, error, tableTitles, tableData } = useGoogleSheetData();
 
-  console.log(tableData);
-
   if (loading) {
     return <div>Loading...</div>;
   }
