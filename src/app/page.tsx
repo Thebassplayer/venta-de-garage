@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <main className="p-3">
       <h1 className="text-center text-2xl py-4">Venta de Garage</h1>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {tableData.map((article, index) => {
           if (article.vendido === "TRUE") return;
           return <Card key={index} article={article as any} />;
