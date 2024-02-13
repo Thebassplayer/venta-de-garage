@@ -15,17 +15,3 @@ export function getDataAsObject<T>(arrayOfRows: T[][]) {
     }, {} as RowData<T>);
   });
 }
-
-export function findArticleBySlug(targetSlug: string, data: string[][]) {
-  return (
-    data.slice(1).find(article => article[article.length - 1] === targetSlug) ||
-    null
-  );
-}
-
-export function articleArraytoObject(titles: string[], articleArray: string[]) {
-  return titles.reduce((acc: any, title, index) => {
-    acc[title] = articleArray[index];
-    return acc;
-  }, {});
-}
