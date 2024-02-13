@@ -7,7 +7,7 @@ export type CardProps = {
   article: Article;
 };
 
-const defaultImage = "venta_garage/e9f01hh4kutrdbsen9bs";
+export const defaultImage = "venta_garage/e9f01hh4kutrdbsen9bs";
 
 const Card = ({ article }: CardProps) => {
   const firstImage = article.imagen1 ? article.imagen1 : defaultImage;
@@ -20,13 +20,13 @@ const Card = ({ article }: CardProps) => {
 
   return (
     <a href={`/article/${slug}`} className="block dark:bg-white p-4 rounded-sm">
-      <div className="h-64 w-full object-cover sm:h-80 lg:h-96 relative">
+      <div className="h-64 w-full object-cover sm:h-80 lg:h-96 relative overflow-hidden">
         <CldImage
           height={400}
           width={400}
           src={firstImage}
           alt={"artwork.alt"}
-          crop="fill"
+          crop="fit"
         />
       </div>
       <div className="flex mt-4 justify-between">

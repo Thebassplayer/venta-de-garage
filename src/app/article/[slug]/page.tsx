@@ -1,6 +1,8 @@
 "use client";
+import { defaultImage } from "@/app/components/Card";
 import { Article as ArticleData } from "@/app/types";
 import { CldImage } from "next-cloudinary";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
@@ -9,15 +11,15 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   const [articleData, setArticleData] = useState<
     | ArticleData
     | {
-        titulo: "";
-        marca: "";
-        modelo: "";
-        detalles: "";
-        precio: "";
-        imagen1: "";
-        imagen2: "";
-        imagen3: "";
-        comentarios: "";
+        titulo: string;
+        marca: string;
+        modelo: string;
+        detalles: string;
+        precio: string;
+        imagen1: string;
+        imagen2: string;
+        imagen3: string;
+        comentarios: string;
       }
   >({
     titulo: "",
@@ -45,31 +47,49 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   console.log(imagen1, imagen2, imagen3);
 
   return (
-    <div className="h-screen w-screen">
+    <main className=" border border-black m-4 rounded-sm">
       <h1 className="text-center text-2xl">{titulo}</h1>
-      <div className="px-10 w-full object-cover h-1/2 grid grid-cols-3 gap-4">
-        {[imagen1, imagen2, imagen3].map((imagen, index) => (
-          <div
-            key={index}
-            className="relative flex justify-center items-center"
-          >
-            <CldImage
-              height={300}
-              width={300}
-              src={imagen}
-              alt={titulo}
-              crop="fill"
-            />
-          </div>
-        ))}
+      <div className="px-10 w-full object-cover h-1/2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[imagen1, imagen2, imagen3].map((imagen, index) => {
+          if (!imagen || imagen === "") {
+            return (
+              <div
+                key={index}
+                className="relative flex justify-center items-center"
+              >
+                <Image
+                  src="https://res.cloudinary.com/dukkbmkvk/image/upload/c_scale,q_48,w_367/v1707601780/venta_garage/e9f01hh4kutrdbsen9bs.jpg"
+                  alt={titulo}
+                  width={300}
+                  height={300}
+                />
+              </div>
+            );
+          }
+
+          return (
+            <div
+              key={index}
+              className="relative flex justify-center items-center"
+            >
+              <CldImage
+                height={300}
+                width={300}
+                src={imagen}
+                alt={titulo}
+                crop="fit"
+              />
+            </div>
+          );
+        })}
       </div>
-      <div>
+      <div className="w-full pr-4">
         <p>Marca: {marca}</p>
         <p>Modelo: {modelo}</p>
         <p>Detalle: {detalles}</p>
         <p>Precio: {precio}</p>
       </div>
-    </div>
+    </main>
   );
 };
 
