@@ -19,7 +19,10 @@ const Card = ({ article }: CardProps) => {
   const slug = article.slug ? article.slug : "#";
 
   return (
-    <a href={`/article/${slug}`} className="block dark:bg-white p-4 rounded-sm">
+    <a
+      href={`/article/${slug}`}
+      className="border border-black block dark:bg-white p-4 rounded-sm"
+    >
       <div className="h-64 w-full object-cover sm:h-80 lg:h-96 relative overflow-hidden">
         <CldImage
           height={400}

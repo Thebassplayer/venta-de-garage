@@ -47,7 +47,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   console.log(imagen1, imagen2, imagen3);
 
   return (
-    <main className=" border border-black m-4 rounded-sm">
+    <main className="m-4 rounded-sm border border-black">
       <h1 className="text-center text-2xl">{titulo}</h1>
       <div className="px-10 w-full object-cover h-1/2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[imagen1, imagen2, imagen3].map((imagen, index) => {
@@ -83,11 +83,23 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
           );
         })}
       </div>
-      <div className="w-full pr-4">
-        <p>Marca: {marca}</p>
-        <p>Modelo: {modelo}</p>
-        <p>Detalle: {detalles}</p>
-        <p>Precio: {precio}</p>
+      <div className="w-full p-4">
+        <p>
+          <span className="underline-offset-2 underline">Marca: </span>
+          <span>{marca}</span>
+        </p>
+        <p>
+          <span className="underline-offset-2 underline">Modelo: </span>
+          <span>{modelo}</span>
+        </p>
+        <p>
+          <span className="underline-offset-2 underline">Detalle: </span>
+          <span>{detalles}</span>
+        </p>
+        <p>
+          <span className="underline-offset-2 underline">Precio: </span>
+          <span>{precio}</span>
+        </p>
       </div>
     </main>
   );
