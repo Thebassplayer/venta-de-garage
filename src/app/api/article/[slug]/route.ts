@@ -1,19 +1,16 @@
+import {
+  articleArraytoObject,
+  findArticleBySlug,
+} from "@/utils/googleSheets/dataManipulation";
 import { google } from "googleapis";
 
+const client_email = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
+const private_key = process.env.GOOGLE_SHEETS_PRIVATE_KEY;
+const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+
 export const GET = async (req: Request) => {
-  const client_email = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
-  const private_key = process.env.GOOGLE_SHEETS_PRIVATE_KEY;
-  const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
   const { url } = req;
   const slug = url.split("/").pop();
-
-  function findArticleBySlug(targetSlug: string, data: string[][]) {
-    return (
-      data
-        .slice(1)
-        .find(article => article[article.length - 1] === targetSlug) || null
-    );
-  }
 
   try {
     if (!client_email || !private_key || !spreadsheetId) {
@@ -68,10 +65,29 @@ export const GET = async (req: Request) => {
         status: 404,
       });
     }
+    // Get Titles
+    const titles = articles[0];
 
-    const article = findArticleBySlug(slug, articles);
+    if (!titles) {
+      return new Response(JSON.stringify({ message: "No titles found" }), {
+        status: 404,
+      });
+    }
 
-    console.log(article);
+    const articleArray = findArticleBySlug(slug, articles);
+
+    if (!articleArray) {
+      return new Response(
+        JSON.stringify({ message: "No article found with that slug" }),
+        {
+          status: 404,
+        }
+      );
+    }
+
+    // Transform the array into an object
+
+    const article = articleArraytoObject(titles, articleArray);
 
     return new Response(JSON.stringify(article), {
       status: 200,
