@@ -16,9 +16,10 @@ const Card = ({ article }: CardProps) => {
   const detail = article.detalles
     ? article.detalles
     : "Detalles no disponibles";
+  const slug = article.slug ? article.slug : "#";
 
   return (
-    <a href="#" className="block dark:bg-white p-4 rounded-sm">
+    <a href={`/article/${slug}`} className="block dark:bg-white p-4 rounded-sm">
       <div className="h-64 w-full object-cover sm:h-80 lg:h-96 relative">
         <CldImage fill src={firstImage} alt={"artwork.alt"} crop="fill" />
       </div>

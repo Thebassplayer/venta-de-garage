@@ -8,7 +8,7 @@ export type Article = {
   imagen2?: string;
   imagen3?: string;
   id?: string;
-  slug?: string;
+  slug: string;
   comentarios: string;
   linkMercadoLibre?: string;
   linkFacebook?: string;
