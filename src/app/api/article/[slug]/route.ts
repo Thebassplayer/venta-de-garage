@@ -4,14 +4,14 @@ const client_email = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
 const private_key = process.env.GOOGLE_SHEETS_PRIVATE_KEY;
 const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
 
-export function findArticleBySlug(targetSlug: string, data: string[][]) {
+function findArticleBySlug(targetSlug: string, data: string[][]) {
   return (
     data.slice(1).find(article => article[article.length - 1] === targetSlug) ||
     null
   );
 }
 
-export function articleArraytoObject(titles: string[], articleArray: string[]) {
+function articleArraytoObject(titles: string[], articleArray: string[]) {
   return titles.reduce((acc: any, title, index) => {
     acc[title] = articleArray[index];
     return acc;
