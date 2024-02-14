@@ -23,13 +23,13 @@ const Card = ({ article }: CardProps) => {
       href={`/article/${slug}`}
       className="border border-black block dark:bg-white p-4 rounded-sm"
     >
-      <div className="h-64 w-full object-cover sm:h-80 lg:h-96 relative overflow-hidden">
+      <div className="w-full object-cover relative overflow-hidden flex justify-center">
         <CldImage
-          height={400}
-          width={400}
+          height={300}
+          width={300}
           src={firstImage}
           alt={"artwork.alt"}
-          crop="fit"
+          crop="fill_pad"
         />
       </div>
       <div className="flex mt-4 justify-between">
