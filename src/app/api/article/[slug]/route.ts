@@ -13,6 +13,11 @@ function findArticleBySlug(targetSlug: string, data: string[][]) {
 
 function articleArraytoObject(titles: string[], articleArray: string[]) {
   return titles.reduce((acc: any, title, index) => {
+    // Transform vendido value to boolean
+    if (title === "vendido") {
+      acc[title] = articleArray[index] === "TRUE";
+      return acc;
+    }
     acc[title] = articleArray[index];
     return acc;
   }, {});

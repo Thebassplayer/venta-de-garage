@@ -9,30 +9,7 @@ import { useEffect, useState } from "react";
 const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   const { slug } = params;
 
-  const [articleData, setArticleData] = useState<
-    | ArticleData
-    | {
-        titulo: string;
-        marca: string;
-        modelo: string;
-        detalles: string;
-        precio: string;
-        imagen1: string;
-        imagen2: string;
-        imagen3: string;
-        comentarios: string;
-      }
-  >({
-    titulo: "",
-    marca: "",
-    modelo: "",
-    detalles: "",
-    precio: "",
-    imagen1: "",
-    imagen2: "",
-    imagen3: "",
-    comentarios: "",
-  });
+  const [articleData, setArticleData] = useState<ArticleData | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,10 +19,35 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
     };
     fetchData();
   }, [slug]);
-  const { titulo, marca, modelo, detalles, precio, imagen1, imagen2, imagen3 } =
-    articleData;
 
-  console.log(imagen1, imagen2, imagen3);
+  if (!articleData) {
+    return (
+      <main className="w-screen h-screen">
+        <div className="w-full h-full flex items-center justify-center">
+          Loading...
+        </div>
+      </main>
+    );
+  }
+  const {
+    titulo,
+    marca,
+    modelo,
+    detalles,
+    precio,
+    imagen1,
+    imagen2,
+    imagen3,
+    vendido,
+  } = articleData;
+
+  if (vendido) {
+    return (
+      <main className="m-4 rounded-sm border border-black">
+        <h1 className="text-center text-2xl py-3">Artículo vendido</h1>
+      </main>
+    );
+  }
 
   return (
     <main className="m-4 rounded-sm border border-black">

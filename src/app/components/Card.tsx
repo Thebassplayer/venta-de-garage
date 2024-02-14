@@ -28,7 +28,7 @@ const Card = ({ article }: CardProps) => {
           height={300}
           width={300}
           src={firstImage}
-          alt={"artwork.alt"}
+          alt={title}
           crop="fill_pad"
         />
       </div>
