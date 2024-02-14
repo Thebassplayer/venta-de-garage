@@ -102,7 +102,10 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
         </p>
       </div>
       <div className="w-full flex justify-center my-4">
-        <WhatsAppButton />
+        <WhatsAppButton
+          phoneNumber="541133449591"
+          message={`Estoy interesad@ en ${titulo}`}
+        />
       </div>
     </main>
   );
