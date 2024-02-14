@@ -48,7 +48,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
 
   return (
     <main className="m-4 rounded-sm border border-black">
-      <h1 className="text-center text-2xl py-3">{titulo}</h1>
+      <h1 className="text-center text-2xl py-3">{titulo || ""}</h1>
       <div className="px-10 w-full object-cover h-1/2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[imagen1, imagen2, imagen3].map((imagen, index) => {
           if (!imagen || imagen === "") {
@@ -57,11 +57,12 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
                 key={index}
                 className="relative flex justify-center items-center"
               >
-                <Image
+                <CldImage
+                  height={300}
+                  width={300}
                   src="https://res.cloudinary.com/dukkbmkvk/image/upload/c_scale,q_48,w_367/v1707601780/venta_garage/e9f01hh4kutrdbsen9bs.jpg"
                   alt={titulo}
-                  width={300}
-                  height={300}
+                  crop="fill_pad"
                 />
               </div>
             );
