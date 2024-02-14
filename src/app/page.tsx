@@ -7,11 +7,23 @@ export default function Home() {
   const { loading, error, tableTitles, tableData } = useGoogleSheetData();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <main className="w-screen h-screen">
+        <div className="w-full h-full flex items-center justify-center">
+          Loading...
+        </div>
+      </main>
+    );
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return (
+      <main className="w-screen h-screen">
+        <div className="w-full h-full flex items-center justify-center">
+          Error de conexion, intentelo mas tarde!
+        </div>
+      </main>
+    );
   }
 
   return (
