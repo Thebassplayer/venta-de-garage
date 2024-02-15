@@ -58,7 +58,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
     <main className="w-screen md:h-[100svh] p-4 min-h-svh">
       <div className="rounded-sm border border-black h-full flex flex-col relative">
         <HomeButton />
-        <h1 className="text-center font-bold text-4xl pb-8 pt-16 md:py-6 ocean_gradient px-4">
+        <h1 className="text-center font-bold text-2xl md:text-4xl pb-8 pt-10 md:py-6 ocean_gradient px-4">
           {titulo || ""}
         </h1>
 
