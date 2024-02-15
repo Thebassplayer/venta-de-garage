@@ -5,6 +5,8 @@ import { Article as ArticleData } from "@/app/types";
 import { CldImage } from "next-cloudinary";
 import { useEffect, useState } from "react";
 
+const WhattsappDefaultMessage = "Estoy interesad@ en este artículo:";
+
 const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   const { slug } = params;
 
@@ -111,7 +113,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
         <div className="w-full flex justify-center items-center my-4 grow">
           <WhatsAppButton
             phoneNumber="541133449591"
-            message={`Estoy interesad@ en ${titulo}`}
+            message={`${WhattsappDefaultMessage} ${titulo}`}
           />
         </div>
       </div>
