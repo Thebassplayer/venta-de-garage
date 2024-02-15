@@ -1,9 +1,8 @@
 "use client";
-import { defaultImage } from "@/app/components/Card";
+import HomeButton from "@/app/components/HomeButton";
 import WhatsAppButton from "@/app/components/WhatsAppButton";
 import { Article as ArticleData } from "@/app/types";
 import { CldImage } from "next-cloudinary";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
@@ -55,7 +54,8 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
 
   return (
     <main className="w-screen h-[100svh] p-4">
-      <div className="rounded-sm border border-black h-full flex flex-col">
+      <div className="rounded-sm border border-black h-full flex flex-col relative">
+        <HomeButton />
         <h1 className="text-center font-bold text-4xl py-8 ocean_gradient">
           {titulo || ""}
         </h1>
