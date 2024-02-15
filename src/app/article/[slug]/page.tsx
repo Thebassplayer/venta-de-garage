@@ -43,7 +43,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
 
   if (vendido) {
     return (
-      <main className="w-screen h-screen p-4">
+      <main className="w-screen h-[100svh] p-4">
         <div className="rounded-sm border border-black h-full flex justify-center items-center">
           <h1 className="text-center text-2xl py-3 text-red-600">
             Artículo vendido
@@ -54,7 +54,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   }
 
   return (
-    <main className="w-screen h-screen p-4">
+    <main className="w-screen h-[100svh] p-4">
       <div className="rounded-sm border border-black h-full">
         <h1 className="text-center text-2xl py-3">{titulo || ""}</h1>
 
