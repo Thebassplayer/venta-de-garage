@@ -10,7 +10,7 @@ const HomeButton = () => {
 
   return (
     <button
-      className="rounded-full border border-black w-10 h-10 flex justify-center items-center absolute top-8 left-6"
+      className="rounded-full border border-black w-10 h-10 flex justify-center items-center absolute top-4 left-4"
       onClick={handleClick}
     >
       <div className="text-xl">🏠</div>
