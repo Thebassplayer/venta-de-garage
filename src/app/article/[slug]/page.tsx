@@ -45,7 +45,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
     return (
       <main className="w-screen h-[100svh] p-4">
         <div className="rounded-sm border border-black h-full flex justify-center items-center">
-          <h1 className="text-center text-2xl py-3 text-red-600">
+          <h1 className="text-center text-4xl py-3 text-red-600">
             Artículo vendido
           </h1>
         </div>
@@ -55,10 +55,12 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
 
   return (
     <main className="w-screen h-[100svh] p-4">
-      <div className="rounded-sm border border-black h-full">
-        <h1 className="text-center text-2xl py-3">{titulo || ""}</h1>
+      <div className="rounded-sm border border-black h-full flex flex-col">
+        <h1 className="text-center font-bold text-4xl py-8 ocean_gradient">
+          {titulo || ""}
+        </h1>
 
-        <div className="relative grid grid-cols-2 lg:grid-cols-3 gap-4 px-10 w-full h-1/2">
+        <div className="relative grid grid-cols-2 lg:grid-cols-3 gap-4 px-10 w-full">
           {[imagen1, imagen2, imagen3].map((imagen, index) => {
             if (!imagen || imagen === "") {
               return (
@@ -88,7 +90,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
           })}
         </div>
 
-        <div className="w-full p-4">
+        <div className="w-full px-4 py-6">
           <p>
             <span className="underline-offset-2 underline">Marca: </span>
             <span>{marca}</span>
@@ -106,7 +108,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
             <span>{precio}</span>
           </p>
         </div>
-        <div className="w-full flex justify-center my-4">
+        <div className="w-full flex justify-center items-center my-4 grow">
           <WhatsAppButton
             phoneNumber="541133449591"
             message={`Estoy interesad@ en ${titulo}`}
