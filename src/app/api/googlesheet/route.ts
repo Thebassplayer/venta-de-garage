@@ -48,7 +48,15 @@ export const GET = async (req: Request) => {
 
     const rawRows: string[][] = data.data.values || [[]];
     const headers: string[] = rawRows.shift() || [];
-    const rows: Record<string, string>[] = rawRows.map(row => {
+
+    // Filter rows where "vendido" and "pausado" are not equal to "TRUE"
+    const filteredRows = rawRows.filter(
+      row =>
+        row[headers.indexOf("vendido")] !== "TRUE" &&
+        row[headers.indexOf("pausado")] !== "TRUE"
+    );
+
+    const rows: Record<string, string>[] = filteredRows.map(row => {
       return row.reduce<Record<string, string>>((acc, cell, index) => {
         acc[headers[index]] = cell;
         return acc;
