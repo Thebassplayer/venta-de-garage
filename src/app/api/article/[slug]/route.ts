@@ -1,4 +1,5 @@
 import { google } from "googleapis";
+import { GoogleSheetRange } from "../../googlesheet/route";
 
 const client_email = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
 const private_key = process.env.GOOGLE_SHEETS_PRIVATE_KEY;
@@ -62,7 +63,7 @@ export const GET = async (req: Request) => {
 
     const opt = {
       spreadsheetId,
-      range: "Sheet1!A2:M42",
+      range: GoogleSheetRange,
     };
 
     const data = await gsapi.spreadsheets.values.get(opt);

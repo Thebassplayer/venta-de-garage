@@ -1,9 +1,7 @@
 "use client";
 import HomeButton from "@/app/components/HomeButton";
 import WhatsAppButton from "@/app/components/WhatsAppButton";
-import { defaultImage } from "@/app/constants";
 import { Article as ArticleData } from "@/app/types";
-import { CldImage } from "next-cloudinary";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -41,8 +39,13 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
     imagen1,
     imagen2,
     imagen3,
+    imagen4,
+    imagen5,
+    imagen6,
     vendido,
   } = articleData;
+
+  const arrayOfImages = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6];
 
   if (vendido) {
     return (
@@ -57,14 +60,14 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   }
 
   return (
-    <main className="w-screen md:h-[100svh] p-4 min-h-svh flex justify-center flex-col">
+    <main className="w-screen p-4 flex justify-center flex-col">
       <div className="rounded-sm border border-black h-full flex flex-col relative bg-slate-100">
         <HomeButton />
         <h1 className="text-center font-bold text-2xl md:text-4xl pb-8 pt-10 md:py-6 ocean_gradient px-4">
           {titulo || ""}
         </h1>
-        <div className="relative flex gap-4 px-10 w-full justify-evenly">
-          {[imagen1, imagen2, imagen3].map((imagen, index) => {
+        <div className="relative justify-evenly flex gap-4 px-10 w-full flex-wrap">
+          {arrayOfImages.map((imagen, index) => {
             if (!imagen || imagen === "") {
               return null;
             } else {

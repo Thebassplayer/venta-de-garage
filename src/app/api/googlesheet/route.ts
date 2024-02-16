@@ -3,6 +3,7 @@ import { google } from "googleapis";
 const client_email = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
 const private_key = process.env.GOOGLE_SHEETS_PRIVATE_KEY;
 const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+export const GoogleSheetRange = "Sheet1!A2:Q50";
 
 export const GET = async (req: Request) => {
   try {
@@ -14,6 +15,7 @@ export const GET = async (req: Request) => {
         }
       );
     }
+
     const client = new google.auth.JWT(
       client_email,
       undefined,
@@ -21,33 +23,47 @@ export const GET = async (req: Request) => {
       ["https://www.googleapis.com/auth/spreadsheets"]
     );
 
-    client.authorize(async function (err) {
-      if (err) {
-        return new Response(JSON.stringify(`Google Auth error: ${err}`), {
-          status: 500,
+    const authorizeClient = () => {
+      return new Promise<void>((resolve, reject) => {
+        client.authorize(err => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve();
+          }
         });
-      }
-    });
-    if (!client) {
-      return new Response(
-        JSON.stringify({ message: "Failed to authenticate" }),
-        {
-          status: 500,
-        }
-      );
-    }
+      });
+    };
+
+    await authorizeClient();
+
     const gsapi = google.sheets({ version: "v4", auth: client });
 
     const opt = {
       spreadsheetId,
-      range: "Sheet1!A2:M50",
+      range: GoogleSheetRange,
     };
 
     const data = await gsapi.spreadsheets.values.get(opt);
 
-    return new Response(JSON.stringify(data.data.values), {
-      status: 200,
+    const rawRows: string[][] = data.data.values || [[]];
+    const headers: string[] = rawRows.shift() || [];
+    const rows: Record<string, string>[] = rawRows.map(row => {
+      return row.reduce<Record<string, string>>((acc, cell, index) => {
+        acc[headers[index]] = cell;
+        return acc;
+      }, {});
     });
+
+    return new Response(
+      JSON.stringify({
+        tableTitles: headers,
+        tableData: rows,
+      }),
+      {
+        status: 200,
+      }
+    );
   } catch (error) {
     console.log(error);
     return new Response(JSON.stringify(`ERROR: ${error}`), {

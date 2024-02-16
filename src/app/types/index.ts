@@ -7,11 +7,15 @@ export type Article = {
   imagen1: string;
   imagen2: string;
   imagen3: string;
+  imagen4: string;
+  imagen5: string;
+  imagen6: string;
   id?: string;
   slug: string;
   comentarios: string;
   linkMercadoLibre?: string;
   linkFacebook?: string;
   vendido?: boolean;
+  pausado?: boolean;
   valorNuevo?: string;
 };
