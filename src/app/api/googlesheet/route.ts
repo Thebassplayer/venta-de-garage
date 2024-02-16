@@ -15,6 +15,7 @@ export const GET = async (req: Request) => {
         }
       );
     }
+
     const client = new google.auth.JWT(
       client_email,
       undefined,
@@ -48,41 +49,30 @@ export const GET = async (req: Request) => {
     const rawRows: string[][] = data.data.values || [[]];
     const headers: string[] = rawRows.shift() || [];
 
-    // Check if the first title is defined and not an empty string
-    if (headers.length > 0 && headers[0] !== "") {
-      // Filter rows where "vendido" and "pausado" are not equal to "TRUE"
-      const filteredRows = rawRows.filter(
-        row =>
-          row[headers.indexOf("vendido")] !== "TRUE" &&
-          row[headers.indexOf("pausado")] !== "TRUE"
-      );
+    // Filter rows where "vendido" and "pausado" are not equal to "TRUE"
+    const filteredRows = rawRows.filter(
+      row =>
+        row[headers.indexOf("titulo")] !== "" &&
+        row[headers.indexOf("vendido")] !== "TRUE" &&
+        row[headers.indexOf("pausado")] !== "TRUE"
+    );
 
-      const rows: Record<string, string>[] = filteredRows.map(row => {
-        return row.reduce<Record<string, string>>((acc, cell, index) => {
-          acc[headers[index]] = cell;
-          return acc;
-        }, {});
-      });
+    const rows: Record<string, string>[] = filteredRows.map(row => {
+      return row.reduce<Record<string, string>>((acc, cell, index) => {
+        acc[headers[index]] = cell;
+        return acc;
+      }, {});
+    });
 
-      return new Response(
-        JSON.stringify({
-          tableTitles: headers,
-          tableData: rows,
-        }),
-        {
-          status: 200,
-        }
-      );
-    } else {
-      return new Response(
-        JSON.stringify({
-          message: "First title is not defined or is an empty string",
-        }),
-        {
-          status: 500,
-        }
-      );
-    }
+    return new Response(
+      JSON.stringify({
+        tableTitles: headers,
+        tableData: rows,
+      }),
+      {
+        status: 200,
+      }
+    );
   } catch (error) {
     console.log(error);
     return new Response(JSON.stringify(`ERROR: ${error}`), {
