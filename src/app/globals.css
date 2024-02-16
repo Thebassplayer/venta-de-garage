@@ -9,17 +9,9 @@ html {
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+  @apply bg-gradient-to-r from-green-300 via-blue-500 to-purple-600;
 }
 
 .ocean_gradient {
   @apply bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-transparent;
-}
-
-body {
-  @apply bg-gradient-to-r from-green-300 via-blue-500 to-purple-600;
 }
