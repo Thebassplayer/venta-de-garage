@@ -55,13 +55,12 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   }
 
   return (
-    <main className="w-screen md:h-[100svh] p-4 min-h-svh">
+    <main className="w-screen md:h-[100svh] p-4 min-h-svh flex justify-center flex-col">
       <div className="rounded-sm border border-black h-full flex flex-col relative">
         <HomeButton />
         <h1 className="text-center font-bold text-2xl md:text-4xl pb-8 pt-10 md:py-6 ocean_gradient px-4">
           {titulo || ""}
         </h1>
-
         <div className="relative grid grid-cols-2 lg:grid-cols-3 gap-4 px-10 w-full">
           {[imagen1, imagen2, imagen3].map((imagen, index) => {
             if (!imagen || imagen === "") {
@@ -94,20 +93,28 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
 
         <div className="w-full px-4 py-6">
           <p>
-            <span className="underline-offset-2 underline">Marca: </span>
-            <span>{marca}</span>
+            <span className="underline-offset-2 underline lg:text-lg">
+              Marca:{" "}
+            </span>
+            <span className="lg:text-lg">{marca}</span>
           </p>
           <p>
-            <span className="underline-offset-2 underline">Modelo: </span>
-            <span>{modelo}</span>
+            <span className="underline-offset-2 underline lg:text-lg">
+              Modelo:{" "}
+            </span>
+            <span className="lg:text-lg">{modelo}</span>
           </p>
           <p>
-            <span className="underline-offset-2 underline">Detalle: </span>
-            <span>{detalles}</span>
+            <span className="underline-offset-2 underline lg:text-lg">
+              Detalle:{" "}
+            </span>
+            <span className="lg:text-lg">{detalles}</span>
           </p>
           <p>
-            <span className="underline-offset-2 underline">Precio: </span>
-            <span>{precio}</span>
+            <span className="underline-offset-2 underline lg:text-lg">
+              Precio:{" "}
+            </span>
+            <span className="lg:text-lg">{precio}</span>
           </p>
         </div>
         <div className="w-full flex justify-center items-center my-4 grow">
