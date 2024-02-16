@@ -28,5 +28,3 @@ const CompartirPorWhatsAppButton = ({
 };
 
 export default CompartirPorWhatsAppButton;
-
-// href="https://wa.me/?text=Check%20out%20this%20page%20%20https%3A%2F%2Fexample.com"
