@@ -5,7 +5,7 @@ import { Article as ArticleData } from "@/app/types";
 import { CldImage } from "next-cloudinary";
 import { useEffect, useState } from "react";
 
-const WhattsappDefaultMessage = "Estoy interesad@ en este artículo:";
+const WhattsappDefaultMessage = "Hola! estoy interesad@ en este artículo:";
 
 const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   const { slug } = params;
