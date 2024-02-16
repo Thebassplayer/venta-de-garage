@@ -62,33 +62,23 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
         <h1 className="text-center font-bold text-2xl md:text-4xl pb-8 pt-10 md:py-6 ocean_gradient px-4">
           {titulo || ""}
         </h1>
-        <div className="relative grid grid-cols-2 lg:grid-cols-3 gap-4 px-10 w-full">
+        <div className="relative flex gap-4 px-10 w-full">
           {[imagen1, imagen2, imagen3].map((imagen, index) => {
             if (!imagen || imagen === "") {
+              return null;
+            } else {
               return (
                 <CldImage
                   className="m-auto"
                   key={index}
                   height={300}
-                  width={300}
-                  src={defaultImage}
+                  width={350}
+                  src={imagen}
                   alt={titulo}
                   crop="fill_pad"
                 />
               );
             }
-
-            return (
-              <CldImage
-                className="m-auto"
-                key={index}
-                height={300}
-                width={300}
-                src={imagen}
-                alt={titulo}
-                crop="fill_pad"
-              />
-            );
           })}
         </div>
 
