@@ -20,12 +20,12 @@ const Card = ({ article }: CardProps) => {
   return (
     <a
       href={`/article/${slug}`}
-      className="border border-black block dark:bg-white p-4 rounded-sm bg-slate-100 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:-translate-x-1 hover:ring-orange-500 hover:ring-4 hover:shadow-xl active:ring-violet-600"
+      className="block rounded-sm border border-black bg-slate-100 p-4 shadow-sm transition-transform duration-300 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-xl hover:ring-4 hover:ring-orange-500 active:ring-violet-600 dark:bg-white"
     >
-      <div className="h-[300px] relative flex justify-center">
+      <div className="relative flex h-[300px] justify-center">
         <Image height={300} width={300} src={firstImage} alt={title} />
       </div>
-      <div className="flex mt-4 justify-between">
+      <div className="mt-4 flex justify-between">
         <h3 className="text-lg font-bold text-gray-900 sm:text-xl">{title}</h3>
         <p className="text-lg font-bold text-gray-900 sm:text-xl">{price}</p>
       </div>

@@ -18,7 +18,7 @@ const CompartirPorWhatsAppButton = ({
   return (
     <button
       rel="noopener noreferrer"
-      className={`flex items-center justify-center rounded-full bg-orange-500 px-6 py-4 font-bold text-white transition-colors duration-300 hover:bg-orange-600 w-40 ${className}`}
+      className={`flex w-40 items-center justify-center rounded-full bg-orange-500 px-6 py-4 font-bold text-white transition-colors duration-300 hover:bg-orange-600 ${className}`}
       onClick={handleClick}
     >
       <FontAwesomeIcon icon={faShare} size="xl" className="mr-2" />
