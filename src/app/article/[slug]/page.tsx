@@ -115,6 +115,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
           <WhatsAppButton
             phoneNumber="541133449591"
             message={`${WhattsappDefaultMessage} ${titulo}`}
+            className=""
           />
           <CompartirPorWhatsAppButton />
         </div>
