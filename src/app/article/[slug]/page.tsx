@@ -56,7 +56,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
 
   return (
     <main className="w-screen md:h-[100svh] p-4 min-h-svh flex justify-center flex-col">
-      <div className="rounded-sm border border-black h-full flex flex-col relative">
+      <div className="rounded-sm border border-black h-full flex flex-col relative bg-slate-100">
         <HomeButton />
         <h1 className="text-center font-bold text-2xl md:text-4xl pb-8 pt-10 md:py-6 ocean_gradient px-4">
           {titulo || ""}
@@ -91,26 +91,26 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
           })}
         </div>
 
-        <div className="w-full px-4 py-6">
-          <p>
+        <div className="w-full px-6 py-6">
+          <p className="py-2">
             <span className="underline-offset-2 underline lg:text-lg">
               Marca:{" "}
             </span>
             <span className="lg:text-lg">{marca}</span>
           </p>
-          <p>
+          <p className="py-2">
             <span className="underline-offset-2 underline lg:text-lg">
               Modelo:{" "}
             </span>
             <span className="lg:text-lg">{modelo}</span>
           </p>
-          <p>
+          <p className="py-2">
             <span className="underline-offset-2 underline lg:text-lg">
               Detalle:{" "}
             </span>
             <span className="lg:text-lg">{detalles}</span>
           </p>
-          <p>
+          <p className="py-2">
             <span className="underline-offset-2 underline lg:text-lg">
               Precio:{" "}
             </span>
