@@ -1,9 +1,9 @@
 import { google } from "googleapis";
-import { GoogleSheetRange } from "../../googlesheet/route";
 
 const client_email = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
 const private_key = process.env.GOOGLE_SHEETS_PRIVATE_KEY;
 const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+const GoogleSheetRange = process.env.GOOGLE_SHEETS_RANGE;
 
 function findArticleBySlug(targetSlug: string, data: string[][]) {
   return (
