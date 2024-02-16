@@ -22,6 +22,7 @@ const config: Config = {
     accent: "#7B00D3",
     accentDark: "#ffdb4d",
     gray: "#747474",
+    oceanGradient: "linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%)",
   },
   plugins: [],
 };

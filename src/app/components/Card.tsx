@@ -21,7 +21,7 @@ const Card = ({ article }: CardProps) => {
   return (
     <a
       href={`/article/${slug}`}
-      className="border border-black block dark:bg-white p-4 rounded-sm"
+      className="border border-black block dark:bg-white p-4 rounded-sm bg-slate-100 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:-translate-x-1 hover:border-green-400 hover:shadow-xl"
     >
       <div className="w-full object-cover relative overflow-hidden flex justify-center">
         <CldImage
