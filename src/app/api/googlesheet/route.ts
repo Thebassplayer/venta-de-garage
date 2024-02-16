@@ -3,7 +3,7 @@ import { google } from "googleapis";
 const client_email = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
 const private_key = process.env.GOOGLE_SHEETS_PRIVATE_KEY;
 const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
-export const GoogleSheetRange = "Sheet1!A2:Q50";
+const GoogleSheetRange = process.env.GOOGLE_SHEETS_RANGE;
 
 export const GET = async (req: Request) => {
   try {
@@ -49,29 +49,41 @@ export const GET = async (req: Request) => {
     const rawRows: string[][] = data.data.values || [[]];
     const headers: string[] = rawRows.shift() || [];
 
-    // Filter rows where "vendido" and "pausado" are not equal to "TRUE"
-    const filteredRows = rawRows.filter(
-      row =>
-        row[headers.indexOf("vendido")] !== "TRUE" &&
-        row[headers.indexOf("pausado")] !== "TRUE"
-    );
+    // Check if the first title is defined and not an empty string
+    if (headers.length > 0 && headers[0] !== "") {
+      // Filter rows where "vendido" and "pausado" are not equal to "TRUE"
+      const filteredRows = rawRows.filter(
+        row =>
+          row[headers.indexOf("vendido")] !== "TRUE" &&
+          row[headers.indexOf("pausado")] !== "TRUE"
+      );
 
-    const rows: Record<string, string>[] = filteredRows.map(row => {
-      return row.reduce<Record<string, string>>((acc, cell, index) => {
-        acc[headers[index]] = cell;
-        return acc;
-      }, {});
-    });
+      const rows: Record<string, string>[] = filteredRows.map(row => {
+        return row.reduce<Record<string, string>>((acc, cell, index) => {
+          acc[headers[index]] = cell;
+          return acc;
+        }, {});
+      });
 
-    return new Response(
-      JSON.stringify({
-        tableTitles: headers,
-        tableData: rows,
-      }),
-      {
-        status: 200,
-      }
-    );
+      return new Response(
+        JSON.stringify({
+          tableTitles: headers,
+          tableData: rows,
+        }),
+        {
+          status: 200,
+        }
+      );
+    } else {
+      return new Response(
+        JSON.stringify({
+          message: "First title is not defined or is an empty string",
+        }),
+        {
+          status: 500,
+        }
+      );
+    }
   } catch (error) {
     console.log(error);
     return new Response(JSON.stringify(`ERROR: ${error}`), {
