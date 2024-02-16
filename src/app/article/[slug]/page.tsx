@@ -1,4 +1,5 @@
 "use client";
+import CompartirPorWhatsAppButton from "@/app/components/CompartirPorWhatsappButton";
 import HomeButton from "@/app/components/HomeButton";
 import WhatsAppButton from "@/app/components/WhatsAppButton";
 import { Article as ArticleData } from "@/app/types";
@@ -110,11 +111,12 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
             <span className="lg:text-lg">{precio}</span>
           </p>
         </div>
-        <div className="w-full flex justify-center items-center my-4 grow">
+        <div className="w-full flex justify-center items-center my-4 grow gap-4">
           <WhatsAppButton
             phoneNumber="541133449591"
             message={`${WhattsappDefaultMessage} ${titulo}`}
           />
+          <CompartirPorWhatsAppButton />
         </div>
       </div>
     </main>
