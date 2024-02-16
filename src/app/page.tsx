@@ -4,7 +4,7 @@ import useGoogleSheetData from "./hooks/UseGoogleSheetData";
 import Card from "./components/Card";
 
 export default function Home() {
-  const { loading, error, tableTitles, tableData } = useGoogleSheetData();
+  const { loading, error, tableData } = useGoogleSheetData();
 
   if (loading) {
     return (

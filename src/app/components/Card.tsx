@@ -23,13 +23,7 @@ const Card = ({ article }: CardProps) => {
       className="border border-black block dark:bg-white p-4 rounded-sm bg-slate-100 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:-translate-x-1 hover:ring-orange-500 hover:ring-4 hover:shadow-xl active:ring-violet-600"
     >
       <div className="h-[300px] relative flex justify-center">
-        <CldImage
-          height={300}
-          width={350}
-          src={firstImage}
-          alt={title}
-          crop="fill_pad"
-        />
+        <Image height={300} width={300} src={firstImage} alt={title} />
       </div>
       <div className="flex mt-4 justify-between">
         <h3 className="text-lg font-bold text-gray-900 sm:text-xl">{title}</h3>

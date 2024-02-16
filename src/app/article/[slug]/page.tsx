@@ -4,6 +4,7 @@ import WhatsAppButton from "@/app/components/WhatsAppButton";
 import { defaultImage } from "@/app/constants";
 import { Article as ArticleData } from "@/app/types";
 import { CldImage } from "next-cloudinary";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const WhattsappDefaultMessage = "Hola! estoy interesad@ en este artículo:";
@@ -62,20 +63,18 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
         <h1 className="text-center font-bold text-2xl md:text-4xl pb-8 pt-10 md:py-6 ocean_gradient px-4">
           {titulo || ""}
         </h1>
-        <div className="relative flex gap-4 px-10 w-full">
+        <div className="relative flex gap-4 px-10 w-full justify-evenly">
           {[imagen1, imagen2, imagen3].map((imagen, index) => {
             if (!imagen || imagen === "") {
               return null;
             } else {
               return (
-                <CldImage
-                  className="m-auto"
+                <Image
                   key={index}
                   height={300}
-                  width={350}
+                  width={300}
                   src={imagen}
                   alt={titulo}
-                  crop="fill_pad"
                 />
               );
             }
