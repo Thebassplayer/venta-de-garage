@@ -15,7 +15,6 @@ export const GET = async (req: Request) => {
         }
       );
     }
-
     const client = new google.auth.JWT(
       client_email,
       undefined,
