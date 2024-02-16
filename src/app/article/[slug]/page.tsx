@@ -1,6 +1,7 @@
 "use client";
 import HomeButton from "@/app/components/HomeButton";
 import WhatsAppButton from "@/app/components/WhatsAppButton";
+import { defaultImage } from "@/app/constants";
 import { Article as ArticleData } from "@/app/types";
 import { CldImage } from "next-cloudinary";
 import { useEffect, useState } from "react";
@@ -70,7 +71,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
                   key={index}
                   height={300}
                   width={300}
-                  src="https://res.cloudinary.com/dukkbmkvk/image/upload/c_scale,q_48,w_367/v1707601780/venta_garage/e9f01hh4kutrdbsen9bs.jpg"
+                  src={defaultImage}
                   alt={titulo}
                   crop="fill_pad"
                 />
