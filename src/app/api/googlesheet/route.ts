@@ -7,7 +7,7 @@ const GoogleSheetRange = process.env.GOOGLE_SHEETS_RANGE;
 
 export const GET = async (req: Request) => {
   try {
-    if (!client_email || !private_key || !spreadsheetId) {
+    if (!client_email || !private_key || !spreadsheetId || !GoogleSheetRange) {
       return new Response(
         JSON.stringify({ message: "Missing environment variables" }),
         {
