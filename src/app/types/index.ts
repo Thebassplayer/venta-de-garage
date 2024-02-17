@@ -2,7 +2,7 @@ export type Article = {
   titulo: string;
   marca: string;
   modelo: string;
-  detalles: string;
+  detalle: string;
   precio: string;
   imagen1: string;
   imagen2: string;

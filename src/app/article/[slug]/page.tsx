@@ -35,7 +35,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
     titulo,
     marca,
     modelo,
-    detalles,
+    detalle,
     precio,
     imagen1,
     imagen2,
@@ -62,8 +62,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
 
   return (
     <main className="flex w-screen flex-col justify-center p-4">
-      <div className="relative flex h-full flex-col rounded-sm border border-black bg-slate-100">
-        <HomeButton />
+      <div className="relative flex flex-col rounded-sm border border-black bg-slate-100">
         <h1 className="ocean_gradient px-4 pb-8 pt-10 text-center text-2xl font-bold md:py-6 md:text-4xl">
           {titulo || ""}
         </h1>
@@ -86,24 +85,30 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
         </div>
 
         <div className="w-full px-6 py-6">
-          <p className="py-2">
-            <span className="underline underline-offset-2 lg:text-lg">
-              Marca:{" "}
-            </span>
-            <span className="lg:text-lg">{marca}</span>
-          </p>
-          <p className="py-2">
-            <span className="underline underline-offset-2 lg:text-lg">
-              Modelo:{" "}
-            </span>
-            <span className="lg:text-lg">{modelo}</span>
-          </p>
-          <p className="py-2">
-            <span className="underline underline-offset-2 lg:text-lg">
-              Detalle:{" "}
-            </span>
-            <span className="lg:text-lg">{detalles}</span>
-          </p>
+          {marca === "" ? null : (
+            <p className="py-2">
+              <span className="underline underline-offset-2 lg:text-lg">
+                Marca:{" "}
+              </span>
+              <span className="lg:text-lg">{marca}</span>
+            </p>
+          )}
+          {modelo === "" ? null : (
+            <p className="py-2">
+              <span className="underline underline-offset-2 lg:text-lg">
+                Modelo:{" "}
+              </span>
+              <span className="lg:text-lg">{modelo}</span>
+            </p>
+          )}
+          {detalle === "" ? null : (
+            <p className="py-2">
+              <span className="underline underline-offset-2 lg:text-lg">
+                Detalle:{" "}
+              </span>
+              <span className="lg:text-lg">{detalle}</span>
+            </p>
+          )}
           <p className="py-2">
             <span className="underline underline-offset-2 lg:text-lg">
               Precio:{" "}
@@ -111,13 +116,26 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
             <span className="lg:text-lg">{precio}</span>
           </p>
         </div>
-        <div className="my-4 flex w-full grow items-center justify-center gap-4">
+        <div className="my-4 hidden w-full grow items-center justify-center gap-4 md:flex">
           <WhatsAppButton
             phoneNumber="541133449591"
             message={`${WhattsappDefaultMessage} ${titulo}`}
           />
           <CompartirPorWhatsAppButton />
         </div>
+      </div>
+      <div className="fixed bottom-4 right-4 z-50 flex gap-4 md:bottom-0 md:left-6 md:right-0 md:top-6">
+        <HomeButton />
+        <WhatsAppButton
+          className="md:hidden"
+          buttonVersion="compact"
+          phoneNumber="541133449591"
+          message={`${WhattsappDefaultMessage} ${titulo}`}
+        />
+        <CompartirPorWhatsAppButton
+          className="md:hidden"
+          buttonVersion="compact"
+        />
       </div>
     </main>
   );

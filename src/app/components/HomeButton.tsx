@@ -1,7 +1,11 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-const HomeButton = () => {
+type HomeButtonProps = {
+  className?: string;
+};
+
+const HomeButton = ({ className }: HomeButtonProps) => {
   const router = useRouter();
   const handleClick = (e: any) => {
     e.preventDefault();
@@ -10,7 +14,7 @@ const HomeButton = () => {
 
   return (
     <button
-      className="absolute left-2 top-2 flex h-10 w-10 items-center justify-center rounded-full border border-black"
+      className={`flex h-12 w-12 items-center justify-center rounded-full border border-black bg-slate-200 ${className}`}
       onClick={handleClick}
     >
       <div className="text-xl">🏠</div>
