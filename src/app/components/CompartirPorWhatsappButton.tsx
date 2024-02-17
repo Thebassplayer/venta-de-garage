@@ -5,16 +5,29 @@ import { faShare } from "@fortawesome/free-solid-svg-icons";
 
 type CompartirPorWhatsAppButtonProps = {
   className?: string;
+  buttonVersion?: "expanded" | "compact";
 };
 
 const CompartirPorWhatsAppButton = ({
   className,
+  buttonVersion = "expanded",
 }: CompartirPorWhatsAppButtonProps): JSX.Element => {
   const handleClick = () => {
     const url =
       "https://wa.me/?text=Check%20out%20this%20page%20%20https%3A%2F%2Fexample.com";
     window.open(url, "_blank");
   };
+  if (buttonVersion === "compact") {
+    return (
+      <button
+        rel="noopener noreferrer"
+        className={`flex items-center justify-center rounded-full bg-orange-500 p-3 text-white transition-colors duration-300 hover:bg-orange-600 lg:p-6  lg:text-base ${className}`}
+        onClick={handleClick}
+      >
+        <FontAwesomeIcon icon={faShare} size="xl" />
+      </button>
+    );
+  }
   return (
     <button
       rel="noopener noreferrer"

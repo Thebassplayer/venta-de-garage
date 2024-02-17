@@ -6,12 +6,14 @@ export type WhatsAppButtonProps = {
   phoneNumber: string;
   message: string;
   className?: string;
+  buttonVersion?: "expanded" | "compact";
 };
 
 const WhatsAppButton = ({
   phoneNumber,
   message,
   className,
+  buttonVersion = "expanded",
 }: WhatsAppButtonProps): JSX.Element => {
   const handleClick = () => {
     const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
@@ -19,6 +21,17 @@ const WhatsAppButton = ({
     )}`;
     window.open(url, "_blank");
   };
+  if (buttonVersion === "compact") {
+    return (
+      <button
+        rel="noopener noreferrer"
+        className={`flex items-center justify-center rounded-full bg-green-500 p-3 text-white transition-colors duration-300 hover:bg-green-600 lg:p-6  lg:text-base ${className}`}
+        onClick={handleClick}
+      >
+        <FontAwesomeIcon icon={faWhatsapp} size="xl" />
+      </button>
+    );
+  }
   return (
     <button
       rel="noopener noreferrer"

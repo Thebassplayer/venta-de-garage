@@ -2,6 +2,10 @@
 import React from "react";
 import useGoogleSheetData from "./hooks/UseGoogleSheetData";
 import Card from "./components/Card";
+import CompartirPorWhatsAppButton from "./components/CompartirPorWhatsappButton";
+import WhatsAppButton from "./components/WhatsAppButton";
+
+const whatsappMessage = "Hola! estoy interesad@ en este artículo:";
 
 export default function Home() {
   const { loading, error, tableData } = useGoogleSheetData();
@@ -35,6 +39,16 @@ export default function Home() {
           return <Card key={index} article={article as any} />;
         })}
       </div>
+      <CompartirPorWhatsAppButton
+        className="fixed bottom-1 right-1 z-50"
+        buttonVersion="compact"
+      />
+      <WhatsAppButton
+        className="fixed bottom-1 right-1 z-50"
+        buttonVersion="compact"
+        phoneNumber="541133449591"
+        message={`${whatsappMessage}`}
+      />
     </main>
   );
 }
