@@ -13,9 +13,7 @@ const Card = ({ article }: CardProps) => {
   const firstImage = article.imagen1 ? article.imagen1 : defaultImage;
   const title = article.titulo ? article.titulo : "Artículo sin título";
   const price = article.precio ? article.precio : "Precio no disponible";
-  const detail = article.detalles
-    ? article.detalles
-    : "Detalles no disponibles";
+  const detail = article.detalle ? article.detalle : "Detalles no disponibles";
   const slug = article.slug ? article.slug : "#";
 
   return (
