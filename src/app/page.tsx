@@ -40,11 +40,11 @@ export default function Home() {
         })}
       </div>
       <CompartirPorWhatsAppButton
-        className="fixed bottom-1 right-1 z-50"
+        className="fixed bottom-2 right-2 z-50"
         buttonVersion="compact"
       />
       <WhatsAppButton
-        className="fixed bottom-1 right-1 z-50"
+        className="fixed bottom-2 right-16 z-50"
         buttonVersion="compact"
         phoneNumber="541133449591"
         message={`${whatsappMessage}`}
