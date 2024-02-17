@@ -13,7 +13,7 @@ const CompartirPorWhatsAppButton = ({
   buttonVersion = "expanded",
 }: CompartirPorWhatsAppButtonProps): JSX.Element => {
   const handleClick = () => {
-    const url = `https://wa.me/?text=Check%20out%20this%20page%20%20${window.location}`;
+    const url = `https://wa.me/?text=Te%20recomiendo%20este%20sitio%20%20${window.location}`;
     window.open(url, "_blank");
   };
   if (buttonVersion === "compact") {
