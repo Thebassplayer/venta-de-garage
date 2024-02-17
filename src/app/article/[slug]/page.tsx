@@ -2,6 +2,7 @@
 import CompartirPorWhatsAppButton from "@/app/components/CompartirPorWhatsappButton";
 import HomeButton from "@/app/components/HomeButton";
 import WhatsAppButton from "@/app/components/WhatsAppButton";
+import { defaultImage } from "@/app/constants";
 import { Article as ArticleData } from "@/app/types";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -67,21 +68,30 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
           {titulo || ""}
         </h1>
         <div className="relative flex w-full flex-wrap justify-evenly gap-4 px-10">
-          {arrayOfImages.map((imagen, index) => {
-            if (!imagen || imagen === "") {
-              return null;
-            } else {
-              return (
-                <Image
-                  key={index}
-                  height={300}
-                  width={300}
-                  src={imagen}
-                  alt={titulo}
-                />
-              );
-            }
-          })}
+          {!arrayOfImages[0] ? (
+            <Image
+              height={300}
+              width={300}
+              src={defaultImage}
+              alt={"Default image"}
+            />
+          ) : (
+            arrayOfImages.map((imagen, index) => {
+              if (!imagen || imagen === "") {
+                return null;
+              } else {
+                return (
+                  <Image
+                    key={index}
+                    height={300}
+                    width={300}
+                    src={imagen}
+                    alt={titulo}
+                  />
+                );
+              }
+            })
+          )}
         </div>
 
         <div className="w-full px-6 py-6">
