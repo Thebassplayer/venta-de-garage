@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import { Article } from "../types";
-import { CldImage } from "next-cloudinary";
 import { defaultImage } from "../constants";
 import Link from "next/link";
 

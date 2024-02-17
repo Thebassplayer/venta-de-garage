@@ -7,7 +7,8 @@ import { Article as ArticleData } from "@/app/types";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const WhattsappDefaultMessage = "Hola! estoy interesad@ en este artículo:";
+const whattsappButtontMessage = "Hola! estoy interesad@ en este artículo:";
+const whattsappShareMessage = "Hola! te comparto este artículo a la venta:";
 
 const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   const { slug } = params;
@@ -129,9 +130,9 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
         <div className="my-4 hidden w-full grow items-center justify-center gap-4 md:flex">
           <WhatsAppButton
             phoneNumber="541133449591"
-            message={`${WhattsappDefaultMessage} ${titulo}`}
+            message={`${whattsappButtontMessage} ${titulo}`}
           />
-          <CompartirPorWhatsAppButton />
+          <CompartirPorWhatsAppButton message={whattsappShareMessage} />
         </div>
       </div>
       <div className="fixed bottom-4 right-4 z-50 flex gap-4 md:bottom-0 md:left-6 md:right-0 md:top-6">
@@ -140,11 +141,12 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
           className="md:hidden"
           buttonVersion="compact"
           phoneNumber="541133449591"
-          message={`${WhattsappDefaultMessage} ${titulo}`}
+          message={`${whattsappButtontMessage} ${titulo}`}
         />
         <CompartirPorWhatsAppButton
           className="md:hidden"
           buttonVersion="compact"
+          message={whattsappShareMessage}
         />
       </div>
     </main>

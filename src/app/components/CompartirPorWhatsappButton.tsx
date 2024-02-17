@@ -5,15 +5,17 @@ import { faShare } from "@fortawesome/free-solid-svg-icons";
 
 type CompartirPorWhatsAppButtonProps = {
   className?: string;
+  message: string;
   buttonVersion?: "expanded" | "compact";
 };
 
 const CompartirPorWhatsAppButton = ({
   className,
+  message,
   buttonVersion = "expanded",
 }: CompartirPorWhatsAppButtonProps): JSX.Element => {
   const handleClick = () => {
-    const url = `https://wa.me/?text=Te%20recomiendo%20este%20sitio%20%20${window.location}`;
+    const url = `https://wa.me/?text=${message}: ${window.location}`;
     window.open(url, "_blank");
   };
   if (buttonVersion === "compact") {
