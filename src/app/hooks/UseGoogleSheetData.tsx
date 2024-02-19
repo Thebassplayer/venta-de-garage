@@ -35,8 +35,6 @@ const useGoogleSheetData = (): UseGoogleSheetData => {
     fetchData();
   }, []);
 
-  console.log("Table Data", tableData);
-
   return { loading, error, tableTitles, tableData };
 };
 

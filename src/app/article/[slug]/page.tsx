@@ -64,8 +64,9 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   }
 
   return (
-    <main className="flex w-screen flex-col justify-center p-4">
+    <main className="relative flex w-screen flex-col justify-center p-4">
       <div className="relative flex flex-col rounded-sm border border-black bg-slate-100">
+        <ReturnButton className="absolute left-2 top-2 z-50" />
         <h1 className="ocean_gradient px-4 pb-8 pt-10 text-center text-2xl font-bold md:py-6 md:text-4xl">
           {titulo || ""}
         </h1>
@@ -149,7 +150,6 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
           message={whattsappShareMessage}
         />
       </div>
-      <ReturnButton className="absolute z-50 md:left-6 md:top-6" />
     </main>
   );
 };
