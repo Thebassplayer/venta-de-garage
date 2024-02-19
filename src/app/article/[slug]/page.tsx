@@ -1,6 +1,7 @@
 "use client";
 import CompartirPorWhatsAppButton from "@/app/components/CompartirPorWhatsappButton";
-import HomeButton from "@/app/components/HomeButton";
+import ReturnButton from "@/app/components/HomeButton";
+
 import WhatsAppButton from "@/app/components/WhatsAppButton";
 import { defaultImage } from "@/app/constants";
 import { Article as ArticleData } from "@/app/types";
@@ -135,8 +136,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
           <CompartirPorWhatsAppButton message={whattsappShareMessage} />
         </div>
       </div>
-      <div className="fixed bottom-4 right-4 z-50 flex gap-4 md:bottom-0 md:left-6 md:right-0 md:top-6">
-        <HomeButton />
+      <div className="fixed bottom-4 right-4 z-50 flex gap-4 md:bottom-0 md:right-0">
         <WhatsAppButton
           className="md:hidden"
           buttonVersion="compact"
@@ -149,6 +149,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
           message={whattsappShareMessage}
         />
       </div>
+      <ReturnButton className="absolute z-50 md:left-6 md:top-6" />
     </main>
   );
 };
