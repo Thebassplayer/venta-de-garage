@@ -16,7 +16,7 @@ const ReturnButton = ({ className }: ReturnButtonProps) => {
 
   return (
     <button
-      className={`flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-black bg-slate-200 ${className}`}
+      className={`flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-black bg-slate-200 ${className}`}
       onClick={handleClick}
     >
       <FontAwesomeIcon icon={faArrowLeft} />
