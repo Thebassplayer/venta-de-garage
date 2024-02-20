@@ -11,16 +11,14 @@ type NavProps = {
 const ArticleNav = ({ title }: NavProps) => {
   const titulo = title;
   return (
-    <nav className="fixed bottom-4 right-4 z-50 flex gap-4 md:bottom-0 md:right-0">
+    <nav className="fixed bottom-4 right-4 z-50 flex gap-4 md:bottom-10 md:right-1/2 md:translate-x-1/2">
       <InfoButton />
       <WhatsAppButton
-        className="md:hidden"
         buttonVersion="compact"
         phoneNumber="541133449591"
         message={`${whattsappButtontMessage} ${titulo}`}
       />
       <CompartirPorWhatsAppButton
-        className="md:hidden"
         buttonVersion="compact"
         message={whattsappShareMessage}
       />

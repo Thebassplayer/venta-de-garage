@@ -131,13 +131,6 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
             <span className="lg:text-lg">{precio}</span>
           </p>
         </div>
-        <div className="my-4 hidden w-full grow items-center justify-center gap-4 md:flex">
-          <WhatsAppButton
-            phoneNumber="541133449591"
-            message={`${whattsappButtontMessage} ${titulo}`}
-          />
-          <CompartirPorWhatsAppButton message={whattsappShareMessage} />
-        </div>
       </div>
       <Nav title={titulo} />
     </main>
