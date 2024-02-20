@@ -52,7 +52,6 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   const arrayOfImages = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6];
 
   if (vendido || pausado) {
-    console.log("vendido", vendido, "pausado", pausado);
     return (
       <main className="min-h-svh w-screen p-4 md:h-[100svh]">
         <div className="flex h-full items-center justify-center rounded-sm border border-black bg-white">
