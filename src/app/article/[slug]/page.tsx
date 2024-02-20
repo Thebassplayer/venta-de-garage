@@ -1,6 +1,7 @@
 "use client";
 import CompartirPorWhatsAppButton from "@/app/components/CompartirPorWhatsappButton";
 import ReturnButton from "@/app/components/HomeButton";
+import Nav from "@/app/components/Nav";
 
 import WhatsAppButton from "@/app/components/WhatsAppButton";
 import { defaultImage } from "@/app/constants";
@@ -64,9 +65,9 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   }
 
   return (
-    <main className="relative flex w-screen flex-col justify-center p-4">
-      <div className="relative flex flex-col rounded-sm border border-black bg-slate-100">
-        <ReturnButton className="absolute left-2 top-2 z-50" />
+    <main className="flex w-screen flex-col justify-center p-4">
+      <div className="flex flex-col rounded-sm border border-black bg-slate-100">
+        <ReturnButton className="fixed left-2 top-2 z-50" />
         <h1 className="ocean_gradient px-4 pb-8 pt-10 text-center text-2xl font-bold md:py-6 md:text-4xl">
           {titulo || ""}
         </h1>
@@ -137,19 +138,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
           <CompartirPorWhatsAppButton message={whattsappShareMessage} />
         </div>
       </div>
-      <div className="fixed bottom-4 right-4 z-50 flex gap-4 md:bottom-0 md:right-0">
-        <WhatsAppButton
-          className="md:hidden"
-          buttonVersion="compact"
-          phoneNumber="541133449591"
-          message={`${whattsappButtontMessage} ${titulo}`}
-        />
-        <CompartirPorWhatsAppButton
-          className="md:hidden"
-          buttonVersion="compact"
-          message={whattsappShareMessage}
-        />
-      </div>
+      <Nav title={titulo} />
     </main>
   );
 };

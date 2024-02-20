@@ -15,8 +15,6 @@ const Card = ({ article }: CardProps) => {
   const detail = article.detalle ? article.detalle : "Detalles no disponibles";
   const slug = article.slug ? article.slug : "#";
 
-  console.log("First Image: ", firstImage);
-
   return (
     <Link
       href={`/article/${slug}`}
