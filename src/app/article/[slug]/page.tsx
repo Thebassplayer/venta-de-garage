@@ -1,7 +1,8 @@
 "use client";
 import CompartirPorWhatsAppButton from "@/app/components/CompartirPorWhatsappButton";
-import ReturnButton from "@/app/components/HomeButton";
+
 import Nav from "@/app/components/Nav";
+import ReturnButton from "@/app/components/ReturnButton";
 
 import WhatsAppButton from "@/app/components/WhatsAppButton";
 import { defaultImage } from "@/app/constants";
