@@ -10,9 +10,6 @@ import { Article as ArticleData } from "@/app/types";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const whattsappButtontMessage = "Hola! estoy interesad@ en este artículo:";
-const whattsappShareMessage = "Hola! te comparto este artículo a la venta:";
-
 const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   const { slug } = params;
 
@@ -49,16 +46,19 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
     imagen5,
     imagen6,
     vendido,
+    pausado,
   } = articleData;
 
   const arrayOfImages = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6];
 
-  if (vendido) {
+  if (vendido || pausado) {
+    console.log("vendido", vendido, "pausado", pausado);
     return (
       <main className="min-h-svh w-screen p-4 md:h-[100svh]">
-        <div className="flex h-full items-center justify-center rounded-sm border border-black">
+        <div className="flex h-full items-center justify-center rounded-sm border border-black bg-white">
+          <ReturnButton className="fixed left-2 top-2 z-50" />
           <h1 className="py-3 text-center text-2xl text-red-600 md:text-4xl">
-            Artículo vendido
+            Artículo no disponible
           </h1>
         </div>
       </main>

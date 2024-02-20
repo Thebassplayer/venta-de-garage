@@ -7,18 +7,20 @@ const GoogleSheetRange = process.env.GOOGLE_SHEETS_RANGE;
 
 function findArticleBySlug(targetSlug: string, data: string[][]) {
   return (
-    data.slice(1).find(article => article[article.length - 1] === targetSlug) ||
-    null
+    data
+      .slice(1)
+      .find((article) => article[article.length - 1] === targetSlug) || null
   );
 }
 
 function articleArraytoObject(titles: string[], articleArray: string[]) {
   return titles.reduce((acc: any, title, index) => {
     // Transform vendido value to boolean
-    if (title === "vendido") {
+    if (title === "vendido" || title === "pausado") {
       acc[title] = articleArray[index] === "TRUE";
       return acc;
     }
+
     acc[title] = articleArray[index];
     return acc;
   }, {});
@@ -34,14 +36,14 @@ export const GET = async (req: Request) => {
         JSON.stringify({ message: "Missing environment variables" }),
         {
           status: 500,
-        }
+        },
       );
     }
     const client = new google.auth.JWT(
       client_email,
       undefined,
       private_key.split(String.raw`\n`).join("\n"),
-      ["https://www.googleapis.com/auth/spreadsheets"]
+      ["https://www.googleapis.com/auth/spreadsheets"],
     );
 
     client.authorize(async function (err) {
@@ -56,7 +58,7 @@ export const GET = async (req: Request) => {
         JSON.stringify({ message: "Failed to authenticate" }),
         {
           status: 500,
-        }
+        },
       );
     }
     const gsapi = google.sheets({ version: "v4", auth: client });
@@ -98,7 +100,7 @@ export const GET = async (req: Request) => {
         JSON.stringify({ message: "No article found with that slug" }),
         {
           status: 404,
-        }
+        },
       );
     }
 
