@@ -13,8 +13,9 @@ const InfoModal = () => {
         <Link href={pathname}>
           <dialog className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center overflow-auto bg-black bg-opacity-50 backdrop-blur">
             <div className="m-auto bg-white p-8">
-              <div className="flex flex-col items-center">
-                <p>Comparti este sitio con quien quieras!</p>
+              <div className="flex flex-col">
+                <p>- Comparti este sitio con quien quieras! 😎</p>
+                <p>- Actualizaciones todas las semanas</p>
               </div>
             </div>
           </dialog>
