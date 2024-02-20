@@ -4,6 +4,7 @@ import useGoogleSheetData from "./hooks/UseGoogleSheetData";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
 import MainNav from "./components/MainNav";
+import Header from "./components/Header";
 
 const whatsappMessage = "Hola! estoy interesad@ en este artículo:";
 const whattsappShareMessage =
@@ -33,11 +34,9 @@ export default function Home() {
   }
 
   return (
-    <main>
-      <div className="px-3 pb-3">
-        <h1 className="font-anta py-4 text-center text-3xl font-bold">
-          Venta de Garage
-        </h1>
+    <main className="relative">
+      <Header />
+      <div className="px-3 pb-3 pt-20">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {tableData.map((article, index) => {
             if (article.vendido === "TRUE") return;
