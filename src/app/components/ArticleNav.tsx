@@ -8,10 +8,10 @@ type NavProps = {
   title: string;
 };
 
-const Nav = ({ title }: NavProps) => {
+const ArticleNav = ({ title }: NavProps) => {
   const titulo = title;
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex gap-4 md:bottom-0 md:right-0">
+    <nav className="fixed bottom-4 right-4 z-50 flex gap-4 md:bottom-0 md:right-0">
       <InfoButton />
       <WhatsAppButton
         className="md:hidden"
@@ -24,8 +24,8 @@ const Nav = ({ title }: NavProps) => {
         buttonVersion="compact"
         message={whattsappShareMessage}
       />
-    </div>
+    </nav>
   );
 };
 
-export default Nav;
+export default ArticleNav;

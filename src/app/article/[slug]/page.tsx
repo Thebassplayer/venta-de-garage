@@ -1,7 +1,7 @@
 "use client";
 import CompartirPorWhatsAppButton from "@/app/components/CompartirPorWhatsappButton";
 
-import Nav from "@/app/components/Nav";
+import Nav from "@/app/components/ArticleNav";
 import ReturnButton from "@/app/components/ReturnButton";
 
 import WhatsAppButton from "@/app/components/WhatsAppButton";

@@ -4,6 +4,7 @@ import useGoogleSheetData from "./hooks/UseGoogleSheetData";
 import Card from "./components/Card";
 import CompartirPorWhatsAppButton from "./components/CompartirPorWhatsappButton";
 import WhatsAppButton from "./components/WhatsAppButton";
+import InfoButton from "./components/InfoButton";
 
 const whatsappMessage = "Hola! estoy interesad@ en este artículo:";
 const whattsappShareMessage =
@@ -42,6 +43,7 @@ export default function Home() {
         })}
       </div>
       <div className="fixed bottom-4 right-2 z-50 flex justify-between gap-4 px-4">
+        <InfoButton />
         <CompartirPorWhatsAppButton
           buttonVersion="compact"
           message={whattsappShareMessage}
