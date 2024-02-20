@@ -44,14 +44,14 @@ export default function Home() {
       </div>
       <div className="fixed bottom-4 right-2 z-50 flex justify-between gap-4 px-4">
         <InfoButton />
-        <CompartirPorWhatsAppButton
-          buttonVersion="compact"
-          message={whattsappShareMessage}
-        />
         <WhatsAppButton
           buttonVersion="compact"
           phoneNumber="541133449591"
           message={`${whatsappMessage}`}
+        />
+        <CompartirPorWhatsAppButton
+          buttonVersion="compact"
+          message={whattsappShareMessage}
         />
       </div>
     </main>
