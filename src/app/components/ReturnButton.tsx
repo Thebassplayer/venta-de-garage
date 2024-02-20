@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { cx } from "@/utils/styles";
+import { cx } from "@/app/utils/styles";
 
 type ReturnButtonProps = {
   className?: string;
