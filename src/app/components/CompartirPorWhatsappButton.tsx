@@ -1,8 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faShare } from "@fortawesome/free-solid-svg-icons";
-import { cx } from "@/utils";
+import { cx } from "../../utils";
 
 type CompartirPorWhatsAppButtonProps = {
   className?: string;
