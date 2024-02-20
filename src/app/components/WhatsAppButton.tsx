@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { cx } from "../../utils";
+import { cx } from "../../utils/styles";
 
 export type WhatsAppButtonProps = {
   phoneNumber: string;

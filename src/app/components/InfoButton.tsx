@@ -1,4 +1,4 @@
-import { cx } from "../../utils";
+import { cx } from "../../utils/styles";
 import { faInfo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
