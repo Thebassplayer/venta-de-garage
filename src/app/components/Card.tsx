@@ -24,11 +24,13 @@ const Card = ({ article }: CardProps) => {
         <Image height={300} width={300} src={firstImage} alt={title} />
       </div>
       <div className="mt-4 flex justify-between">
-        <h3 className="text-lg font-bold text-gray-900 sm:text-xl">{title}</h3>
+        <h3 className="line-clamp-1 text-lg font-bold text-gray-900 sm:text-xl">
+          {title}
+        </h3>
         <p className="text-lg font-bold text-gray-900 sm:text-xl">{price}</p>
       </div>
 
-      <p className="mt-2 max-w-sm text-gray-700">{detail}</p>
+      <p className="mt-2 line-clamp-4 max-w-sm text-gray-700">{detail}</p>
     </Link>
   );
 };
