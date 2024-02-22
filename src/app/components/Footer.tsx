@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="flex w-full flex-row items-center justify-center gap-4 bg-black p-3">
       <span className="text-sm  text-white dark:bg-white dark:text-black">
-        R3 - 2024 - Todos los derechos reservados
+        R3 - 2024 - Todos los derechos reservados -
       </span>
       <a
         href={"https://github.com/Thebassplayer/venta-de-garage"}
