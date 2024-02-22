@@ -7,6 +7,8 @@ export type UseGoogleSheetData = {
   tableData: Record<string, string>[];
 };
 
+const articlesEndpoint = "/api/articles";
+
 const useArticlesData = (): UseGoogleSheetData => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -16,7 +18,7 @@ const useArticlesData = (): UseGoogleSheetData => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("/api/articles");
+        const res = await fetch(articlesEndpoint);
         if (!res.ok) {
           throw new Error("Failed to fetch data");
         }
