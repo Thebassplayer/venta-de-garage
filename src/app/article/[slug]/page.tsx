@@ -9,6 +9,7 @@ import { defaultImage } from "@/app/constants";
 import { Article as ArticleData } from "@/app/types";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Loading from "@/app/components/Loading";
 
 const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   const { slug } = params;
@@ -25,13 +26,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   }, [slug]);
 
   if (!articleData) {
-    return (
-      <main className="h-screen w-screen">
-        <div className="flex h-full w-full items-center justify-center">
-          Loading...
-        </div>
-      </main>
-    );
+    return <Loading />;
   }
   const {
     titulo,

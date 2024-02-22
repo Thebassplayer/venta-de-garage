@@ -1,26 +1,21 @@
 "use client";
 import React from "react";
-import useGoogleSheetData from "./hooks/UseGoogleSheetData";
+import useArticlesData from "./hooks/UseArticlesData";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
 import MainNav from "./components/MainNav";
 import Header from "./components/Header";
+import Loading from "./components/Loading";
 
 const whatsappMessage = "Hola! estoy interesad@ en este artículo:";
 const whattsappShareMessage =
   "Hola! te comparto este  sitio con artículos a la venta:";
 
 export default function Home() {
-  const { loading, error, tableData } = useGoogleSheetData();
+  const { loading, error, tableData } = useArticlesData();
 
   if (loading) {
-    return (
-      <main className="h-screen w-screen">
-        <div className="flex h-full w-full items-center justify-center">
-          Loading...
-        </div>
-      </main>
-    );
+    return <Loading />;
   }
 
   if (error) {
