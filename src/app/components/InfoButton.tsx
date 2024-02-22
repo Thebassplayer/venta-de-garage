@@ -12,7 +12,7 @@ const InfoButton = ({ className }: InfoButtonProps) => {
     <Link
       href="?modal=true"
       className={cx(
-        `flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 p-3 text-white transition-colors duration-300  hover:bg-blue-600 lg:p-6 lg:text-base`,
+        `flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 p-3 text-white transition-all duration-200 hover:scale-125  hover:bg-blue-600 lg:p-6 lg:text-base`,
         className,
       )}
     >

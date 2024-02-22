@@ -17,7 +17,7 @@ const ReturnButton = ({ className }: ReturnButtonProps) => {
   return (
     <button
       className={cx(
-        `flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-black bg-slate-200 hover:bg-slate-300 `,
+        `flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-black bg-slate-200 transition-all duration-200 hover:scale-125 hover:bg-slate-300`,
         className,
       )}
       onClick={handleClick}
