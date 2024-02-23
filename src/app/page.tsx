@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import useArticlesData from "./hooks/useArticlesData";
 import Card from "./components/Card";
 import MainNav from "./components/MainNav";
 import Header from "./components/Header";
 import Loading from "./components/Loading";
+import useArticlesData from "./hooks/useArticlesData";
 
 const whatsappMessage = "Hola! estoy interesad@ en este artículo:";
 const whattsappShareMessage =
