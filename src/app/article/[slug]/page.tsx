@@ -1,6 +1,6 @@
 "use client";
 
-import Nav from "@/app/components/ArticleNav";
+import ArticleNav from "@/app/components/ArticleNav";
 import ReturnButton from "@/app/components/ReturnButton";
 
 import { defaultImage } from "@/app/constants";
@@ -124,7 +124,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
           </p>
         </div>
       </div>
-      <Nav title={titulo} />
+      <ArticleNav title={titulo} />
     </main>
   );
 };
