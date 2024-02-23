@@ -10,7 +10,7 @@ type MainNavProps = {
 
 const MainNav = ({ whatsappMessage, whattsappShareMessage }: MainNavProps) => {
   return (
-    <div className="fixed bottom-4 right-2 z-50 flex justify-between gap-4 px-4">
+    <nav className="fixed bottom-4 right-4 z-50 flex gap-4 md:bottom-10 md:right-1/2 md:translate-x-1/2">
       <InfoButton />
       <WhatsAppButton
         buttonVersion="compact"
@@ -21,7 +21,7 @@ const MainNav = ({ whatsappMessage, whattsappShareMessage }: MainNavProps) => {
         buttonVersion="compact"
         message={whattsappShareMessage}
       />
-    </div>
+    </nav>
   );
 };
 

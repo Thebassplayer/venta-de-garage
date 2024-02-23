@@ -1,13 +1,13 @@
+"use client";
 import React from "react";
 import { GithubIcon } from "./Icons";
 import useLastUpdate from "../hooks/useLastUpdate";
 
 const Footer = () => {
   const { loading, error, lastUpdate } = useLastUpdate();
-  console.log(lastUpdate, loading, error);
 
   return (
-    <footer className="flex w-full flex-row items-center justify-center gap-4 bg-black p-3 text-sm text-white dark:bg-white dark:text-black">
+    <footer className="flex w-full flex-row items-center justify-center gap-4 bg-black p-3 text-xs text-white dark:bg-white dark:text-black md:text-sm">
       <span>R3 - 2024 - Todos los derechos reservados</span>
       <span>|</span>
       <a

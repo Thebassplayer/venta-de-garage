@@ -1,10 +1,8 @@
 "use client";
-import CompartirPorWhatsAppButton from "@/app/components/CompartirPorWhatsappButton";
 
 import Nav from "@/app/components/ArticleNav";
 import ReturnButton from "@/app/components/ReturnButton";
 
-import WhatsAppButton from "@/app/components/WhatsAppButton";
 import { defaultImage } from "@/app/constants";
 import { Article as ArticleData } from "@/app/types";
 import Image from "next/image";
@@ -60,7 +58,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   }
 
   return (
-    <main className="flex w-screen flex-col justify-center p-4">
+    <main className="flex w-full flex-col justify-center p-4">
       <div className="flex flex-col rounded-sm border border-black bg-slate-100">
         <ReturnButton className="fixed left-2 top-2 z-50" />
         <h1 className="ocean_gradient px-4 pb-8 pt-10 text-center text-2xl font-bold md:py-6 md:text-4xl">

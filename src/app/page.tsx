@@ -1,8 +1,7 @@
 "use client";
 import React from "react";
-import useArticlesData from "./hooks/UseArticlesData";
+import useArticlesData from "./hooks/useArticlesData";
 import Card from "./components/Card";
-import Footer from "./components/Footer";
 import MainNav from "./components/MainNav";
 import Header from "./components/Header";
 import Loading from "./components/Loading";
@@ -43,7 +42,6 @@ export default function Home() {
           whattsappShareMessage={whattsappShareMessage}
         />
       </div>
-      <Footer />
     </main>
   );
 }

@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import InfoModal from "./components/InfoModal";
 import { Suspense } from "react";
+import Footer from "./components/Footer";
+import { cx } from "./utils/styles";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +20,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={cx(
+          inter.className,
+          "flex h-screen flex-col justify-between",
+        )}
+      >
         {children}
+        <Footer />
+
         <Suspense fallback={<>Loading...</>}>
           <InfoModal />
         </Suspense>
