@@ -40,6 +40,7 @@ export default function Home() {
         <MainNav
           whatsappMessage={whatsappMessage}
           whattsappShareMessage={whattsappShareMessage}
+          className="fixed bottom-4 right-4 z-50 md:bottom-14 md:right-1/2 md:translate-x-1/2"
         />
       </div>
     </main>

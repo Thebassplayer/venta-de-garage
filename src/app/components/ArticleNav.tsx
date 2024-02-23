@@ -3,15 +3,17 @@ import WhatsAppButton from "./WhatsAppButton";
 import CompartirPorWhatsAppButton from "./CompartirPorWhatsappButton";
 import { whattsappButtontMessage, whattsappShareMessage } from "../constants";
 import InfoButton from "./InfoButton";
+import { cx } from "../utils/styles";
 
 type NavProps = {
   title: string;
+  className?: string;
 };
 
-const ArticleNav = ({ title }: NavProps) => {
+const ArticleNav = ({ title, className }: NavProps) => {
   const titulo = title;
   return (
-    <nav className="fixed bottom-4 right-4 z-50 flex gap-4 md:bottom-10 md:right-1/2 md:translate-x-1/2">
+    <nav className={cx("flex gap-4", className)}>
       <InfoButton />
       <WhatsAppButton
         buttonVersion="compact"

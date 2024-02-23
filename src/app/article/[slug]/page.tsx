@@ -124,7 +124,10 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
           </p>
         </div>
       </div>
-      <ArticleNav title={titulo} />
+      <ArticleNav
+        title={titulo}
+        className="fixed bottom-4 right-4 z-50 md:bottom-14 md:right-1/2 md:translate-x-1/2"
+      />
     </main>
   );
 };

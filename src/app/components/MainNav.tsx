@@ -2,15 +2,21 @@ import React from "react";
 import InfoButton from "./InfoButton";
 import WhatsAppButton from "./WhatsAppButton";
 import CompartirPorWhatsAppButton from "./CompartirPorWhatsappButton";
+import { cx } from "../utils/styles";
 
 type MainNavProps = {
   whatsappMessage: string;
   whattsappShareMessage: string;
+  className?: string;
 };
 
-const MainNav = ({ whatsappMessage, whattsappShareMessage }: MainNavProps) => {
+const MainNav = ({
+  whatsappMessage,
+  whattsappShareMessage,
+  className,
+}: MainNavProps) => {
   return (
-    <nav className="fixed bottom-4 right-4 z-50 flex gap-4 md:bottom-10 md:right-1/2 md:translate-x-1/2">
+    <nav className={cx("flex gap-4", className)}>
       <InfoButton />
       <WhatsAppButton
         buttonVersion="compact"
