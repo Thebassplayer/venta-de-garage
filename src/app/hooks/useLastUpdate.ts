@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export type UseGoogleSheetData = {
+export type UseLastUpdate = {
   loading: boolean;
   error: string | null;
   lastUpdate: string;
@@ -8,7 +8,7 @@ export type UseGoogleSheetData = {
 
 const lastUpdateEndpoint = "/api/lastupdate";
 
-const useLastUpdate = (): UseGoogleSheetData => {
+const useLastUpdate = (): UseLastUpdate => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdate, setLastUpdate] = useState<string>("");
