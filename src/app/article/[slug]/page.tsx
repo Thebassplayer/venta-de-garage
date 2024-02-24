@@ -58,7 +58,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   }
 
   return (
-    <main className="flex w-full flex-col justify-center p-4">
+    <main className="relative flex w-full flex-col justify-center p-4">
       <div className="flex flex-col rounded-sm border border-black bg-slate-100">
         <ReturnButton className="fixed left-2 top-2 z-50" />
         <h1 className="ocean_gradient px-4 pb-8 pt-10 text-center text-2xl font-bold md:py-6 md:text-4xl">
@@ -124,10 +124,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
           </p>
         </div>
       </div>
-      <ArticleNav
-        title={titulo}
-        className="fixed bottom-4 right-4 z-50 md:bottom-14 md:right-1/2 md:translate-x-1/2"
-      />
+      <ArticleNav title={titulo} className="sticky bottom-4 z-50" />
     </main>
   );
 };

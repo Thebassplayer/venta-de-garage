@@ -16,7 +16,7 @@ const MainNav = ({
   className,
 }: MainNavProps) => {
   return (
-    <nav className={cx("flex gap-4", className)}>
+    <nav className={cx("flex items-center justify-center gap-4", className)}>
       <InfoButton />
       <WhatsAppButton
         buttonVersion="compact"

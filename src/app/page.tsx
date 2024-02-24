@@ -28,7 +28,7 @@ export default function Home() {
   }
 
   return (
-    <main className="relative">
+    <main className="relative flex w-full flex-col justify-center p-4">
       <Header />
       <div className="px-3 pb-3 pt-20">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -40,7 +40,7 @@ export default function Home() {
         <MainNav
           whatsappMessage={whatsappMessage}
           whattsappShareMessage={whattsappShareMessage}
-          className="fixed bottom-4 right-4 z-50 md:bottom-14 md:right-1/2 md:translate-x-1/2"
+          className="sticky bottom-4 z-50"
         />
       </div>
     </main>
