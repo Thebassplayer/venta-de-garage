@@ -23,7 +23,7 @@ const CompartirPorWhatsAppButton = ({
       <button
         rel="noopener noreferrer"
         className={cx(
-          `flex h-14 w-14 items-center justify-center rounded-full bg-orange-500 p-3 text-white transition-all duration-200 hover:scale-125 hover:bg-orange-600 lg:p-6 lg:text-base`,
+          `flex h-14 w-14 items-center justify-center rounded-full border border-black bg-orange-500 p-3 text-white transition-all duration-200 hover:scale-125 hover:bg-orange-600 lg:p-6 lg:text-base `,
           className,
         )}
         onClick={handleClick}

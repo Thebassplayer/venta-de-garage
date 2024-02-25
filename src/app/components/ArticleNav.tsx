@@ -13,7 +13,12 @@ type NavProps = {
 const ArticleNav = ({ title, className }: NavProps) => {
   const titulo = title;
   return (
-    <nav className={cx("flex items-center justify-center gap-4", className)}>
+    <nav
+      className={cx(
+        "mx-auto flex max-w-min items-center justify-center gap-4 rounded-full p-2 backdrop-blur-sm ",
+        className,
+      )}
+    >
       <InfoButton />
       <WhatsAppButton
         buttonVersion="compact"
