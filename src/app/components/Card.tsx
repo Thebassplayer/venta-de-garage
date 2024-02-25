@@ -18,7 +18,7 @@ const Card = ({ article }: CardProps) => {
   return (
     <Link
       href={`/article/${slug}`}
-      className="block cursor-pointer rounded-sm border border-black bg-slate-100 p-4 shadow-sm transition-transform duration-300 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-xl hover:ring-4 hover:ring-orange-500 active:ring-violet-600 dark:bg-white"
+      className="block cursor-pointer rounded-sm border border-black bg-slate-100/70 p-4 shadow-sm transition-transform duration-300 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-xl hover:ring-4 hover:ring-orange-500 active:ring-violet-600"
     >
       <div className="relative flex h-[300px] justify-center">
         <Image height={300} width={300} src={firstImage} alt={title} />

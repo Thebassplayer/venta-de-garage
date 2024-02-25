@@ -59,10 +59,10 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   }
 
   return (
-    <main className="relative flex h-full w-full flex-col  justify-between p-4">
-      <div className="flex flex-col rounded-sm border border-black bg-slate-100">
+    <main className="relative flex h-full w-full flex-col justify-between p-4">
+      <div className="flex flex-col rounded-sm border border-black bg-slate-100/70">
         <ReturnButton className="fixed left-2 top-2 z-50" />
-        <h1 className="ocean_gradient px-4 pb-8 pt-10 text-center text-2xl font-bold md:py-6 md:text-4xl">
+        <h1 className="px-4 pb-8 pt-10 text-center text-2xl font-bold md:py-6 md:text-4xl">
           {titulo || ""}
         </h1>
         <div className="relative flex w-full flex-wrap justify-evenly gap-4 px-10">
