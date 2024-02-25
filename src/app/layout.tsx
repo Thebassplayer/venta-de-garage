@@ -5,6 +5,7 @@ import InfoModal from "./components/InfoModal";
 import { Suspense } from "react";
 import Footer from "./components/Footer";
 import { cx } from "./utils/styles";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
+          <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+        ) : null}
+      </head>
       <body
         className={cx(
           inter.className,
