@@ -23,7 +23,7 @@ export default function RootLayout({
       <body
         className={cx(
           inter.className,
-          "flex h-screen flex-col justify-between",
+          "flex min-h-screen flex-col justify-between",
         )}
       >
         {children}
