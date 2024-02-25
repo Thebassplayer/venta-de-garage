@@ -8,6 +8,7 @@ import { Article as ArticleData } from "@/app/types";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Loading from "@/app/components/Loading";
+import ArticleDetails from "../components/ArticleDetails";
 
 const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
   const { slug } = params;
@@ -91,38 +92,12 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
           )}
         </div>
 
-        <div className="w-full px-6 py-6">
-          {marca === "" ? null : (
-            <p className="py-2">
-              <span className="underline underline-offset-2 lg:text-lg">
-                Marca:{" "}
-              </span>
-              <span className="lg:text-lg">{marca}</span>
-            </p>
-          )}
-          {modelo === "" ? null : (
-            <p className="py-2">
-              <span className="underline underline-offset-2 lg:text-lg">
-                Modelo:{" "}
-              </span>
-              <span className="lg:text-lg">{modelo}</span>
-            </p>
-          )}
-          {detalle === "" ? null : (
-            <p className="py-2">
-              <span className="underline underline-offset-2 lg:text-lg">
-                Detalle:{" "}
-              </span>
-              <span className="lg:text-lg">{detalle}</span>
-            </p>
-          )}
-          <p className="py-2">
-            <span className="underline underline-offset-2 lg:text-lg">
-              Precio:{" "}
-            </span>
-            <span className="lg:text-lg">{precio}</span>
-          </p>
-        </div>
+        <ArticleDetails
+          marca={marca}
+          modelo={modelo}
+          detalle={detalle}
+          precio={precio}
+        />
       </div>
       <ArticleNav title={titulo} className="sticky bottom-4 z-50" />
     </main>
