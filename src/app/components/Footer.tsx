@@ -12,7 +12,7 @@ const Footer = () => {
       <span>|</span>
       <a
         href={"https://github.com/Thebassplayer/venta-de-garage"}
-        className={`ease inline-block h-6 w-6 fill-white transition-transform duration-200 hover:scale-125
+        className={`ease inline-block h-6 w-6 cursor-pointer fill-white transition-transform duration-200 hover:scale-125
             `}
       >
         {<GithubIcon />}
