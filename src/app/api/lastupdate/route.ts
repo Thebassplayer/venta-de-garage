@@ -4,7 +4,7 @@ import { google } from "googleapis";
 const client_email = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
 const private_key = process.env.GOOGLE_SHEETS_PRIVATE_KEY;
 const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
-const GoogleSheetRange = "Sheet1!T2";
+const GoogleSheetRange = "Sheet1!T1";
 
 export const GET = async (req: Request) => {
   try {
