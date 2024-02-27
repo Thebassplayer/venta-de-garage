@@ -1,32 +1,31 @@
-"use client";
-
 import ArticleNav from "@/app/components/ArticleNav";
 import ReturnButton from "@/app/components/ReturnButton";
-
 import { defaultImage } from "@/app/constants";
 import { Article as ArticleData } from "@/app/types";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import Loading from "@/app/components/Loading";
 import ArticleDetails from "../components/ArticleDetails";
 
-const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
+const localUrl = process.env.LOCAL_URL;
+
+async function getData(slug: string): Promise<{ article: ArticleData }> {
+  const res = await fetch(`${localUrl}${slug}`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+export default async function Article({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const { slug } = params;
 
-  const [articleData, setArticleData] = useState<ArticleData | null>(null);
+  const { article } = await getData(slug);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(`/api/article/${slug}`);
-      const data = await res.json();
-      setArticleData(data);
-    };
-    fetchData();
-  }, [slug]);
-
-  if (!articleData) {
-    return <Loading />;
-  }
   const {
     titulo,
     marca,
@@ -41,7 +40,7 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
     imagen6,
     vendido,
     pausado,
-  } = articleData;
+  } = article;
 
   const arrayOfImages = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6];
 
@@ -102,6 +101,4 @@ const Article = ({ params }: { params: { slug: string } }): JSX.Element => {
       <ArticleNav title={titulo} className="sticky bottom-4 z-50" />
     </main>
   );
-};
-
-export default Article;
+}
