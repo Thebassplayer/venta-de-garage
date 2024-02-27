@@ -27,10 +27,7 @@ export default function RootLayout({
         ) : null}
       </head>
       <body
-        className={cx(
-          inter.className,
-          "flex min-h-screen flex-col justify-between",
-        )}
+        className={cx(inter.className, "flex min-h-screen w-full flex-col")}
       >
         {children}
         <Footer />
