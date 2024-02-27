@@ -8,7 +8,7 @@ const Title = ({ className }: TitleProps) => {
   return (
     <h1
       className={cx(
-        "py-2 text-center font-anta text-3xl font-bold backdrop-blur-sm md:text-4xl",
+        "py-4 text-center font-anta text-3xl font-bold backdrop-blur-sm md:text-4xl",
         className,
       )}
     >
