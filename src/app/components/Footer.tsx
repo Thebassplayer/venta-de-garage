@@ -1,10 +1,23 @@
-"use client";
 import React from "react";
 import { GithubIcon } from "./Icons";
-import useLastUpdate from "../hooks/useLastUpdate";
 
-const Footer = () => {
-  const { loading, error, lastUpdate } = useLastUpdate();
+const localUrl = process.env.LOCAL_URL;
+const lastUpdateEndpoint = process.env.LAST_UPDATE_ENDPOINT;
+
+async function getData(): Promise<{ lastUpdate: string }> {
+  const res = await fetch(`${localUrl}${lastUpdateEndpoint}`);
+
+  if (!res.ok) {
+    return { lastUpdate: "" };
+  }
+
+  const data = res.json();
+
+  return data;
+}
+
+export default async function Footer() {
+  const { lastUpdate } = await getData();
 
   return (
     <footer className="flex w-full flex-row items-center justify-center gap-4 bg-black p-3 text-xs text-white dark:bg-white dark:text-black md:text-sm">
@@ -18,13 +31,7 @@ const Footer = () => {
         {<GithubIcon />}
       </a>
       <span>|</span>
-      <span>
-        {loading && "Cargando..."}
-        {error && ""}
-        {lastUpdate && `Última actualización: ${lastUpdate}`}
-      </span>
+      <span>{lastUpdate && `Última actualización: ${lastUpdate}`}</span>
     </footer>
   );
-};
-
-export default Footer;
+}
