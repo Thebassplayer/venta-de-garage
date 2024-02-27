@@ -6,7 +6,7 @@ export type UseLastUpdate = {
   lastUpdate: string;
 };
 
-const lastUpdateEndpoint = "/api/lastupdate";
+const lastUpdateEndpoint = process.env.LAST_UPDATE_ENDPOINT;
 
 const useLastUpdate = (): UseLastUpdate => {
   const [loading, setLoading] = useState(true);
@@ -16,7 +16,7 @@ const useLastUpdate = (): UseLastUpdate => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(lastUpdateEndpoint); // Replace with your actual API endpoint
+        const res = await fetch(`${lastUpdateEndpoint}`); // Replace with your actual API endpoint
         if (!res.ok) {
           throw new Error("Failed to fetch data");
         }
