@@ -6,7 +6,7 @@ import {
   NextResponse,
 } from "next/server";
 
-const maxRequests = 100;
+const maxRequests = 200;
 const duration = "1m";
 
 const ratelimit = new Ratelimit({
