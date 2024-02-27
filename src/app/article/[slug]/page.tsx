@@ -4,12 +4,17 @@ import { defaultImage } from "@/app/constants";
 import { Article as ArticleData } from "@/app/types";
 import Image from "next/image";
 import ArticleDetails from "../components/ArticleDetails";
+import { notFound } from "next/navigation";
 
 const localUrl = process.env.LOCAL_URL;
+const articleApi = process.env.ARTICLE_ENDPOINT;
 
-async function getData(slug: string): Promise<{ article: ArticleData }> {
-  const res = await fetch(`${localUrl}${slug}`);
+async function getData(slug: string): Promise<ArticleData> {
+  const res = await fetch(`${localUrl}${articleApi}${slug}`);
 
+  if (res.status === 404) {
+    notFound();
+  }
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -24,7 +29,7 @@ export default async function Article({
 }) {
   const { slug } = params;
 
-  const { article } = await getData(slug);
+  const article: ArticleData = await getData(slug);
 
   const {
     titulo,
