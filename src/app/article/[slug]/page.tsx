@@ -9,6 +9,27 @@ import { notFound } from "next/navigation";
 const localUrl = process.env.LOCAL_URL;
 const articleApi = process.env.ARTICLE_ENDPOINT;
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
+
+  const articleTitle = (slug: string) => {
+    // Remove hifen and capitalize first letter
+    const articleTitle = slug
+      .replace(/-/g, " ")
+      .replace(/\b\w/g, (l: string) => l.toUpperCase());
+
+    return `Venta de Garage | ${articleTitle}`;
+  };
+
+  return {
+    title: articleTitle(slug),
+  };
+}
+
 async function getData(slug: string): Promise<ArticleData> {
   const res = await fetch(`${localUrl}${articleApi}${slug}`);
 
