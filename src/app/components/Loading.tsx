@@ -3,7 +3,7 @@ import Title from "./Title";
 
 const Loading = () => {
   return (
-    <main className="h-screen w-screen">
+    <main className="flex h-full w-full grow flex-col justify-center">
       <div className="flex h-full w-full flex-col items-center justify-center gap-3">
         <Title className="animate-pulse" />
         <svg
