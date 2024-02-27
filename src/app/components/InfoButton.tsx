@@ -1,3 +1,4 @@
+"use client";
 import { cx } from "@/app/utils/styles";
 import { faInfo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
