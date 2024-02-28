@@ -28,7 +28,7 @@ export default async function Home() {
     <main className="relative flex w-full flex-col justify-center p-4">
       <Header />
       <div className="px-3 pb-3 pt-16">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2  lg:grid-cols-3">
           {tableData.map((article, index) => {
             return <Card key={index} article={article as any} />;
           })}

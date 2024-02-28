@@ -3,6 +3,9 @@ import React from "react";
 import { Article } from "../types";
 import { defaultImage } from "../constants";
 import Link from "next/link";
+import { CardBody, CardContainer, CardItem } from "./ui/Card3D";
+
+const baseURL = process.env.LOCAL_URL;
 
 export type CardProps = {
   article: Article;
@@ -16,22 +19,50 @@ const Card = ({ article }: CardProps) => {
   const slug = article.slug ? article.slug : "#";
 
   return (
-    <Link
-      href={`/article/${slug}`}
-      className="block cursor-pointer rounded-sm border border-black bg-slate-100/70 p-4 shadow-sm transition-transform duration-300 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-xl hover:ring-4 hover:ring-orange-500 active:ring-violet-600"
-    >
-      <div className="relative flex h-[300px] justify-center">
-        <Image height={300} width={300} src={firstImage} alt={title} />
-      </div>
-      <div className="mt-4 flex justify-between">
-        <h3 className="line-clamp-1 text-lg font-bold text-gray-900 sm:text-xl">
+    <CardContainer className="inter-var">
+      <CardBody className="group/card relative h-auto  w-auto rounded-xl border border-black/[0.1] bg-gray-50/50 p-6 dark:border-white/[0.2] dark:bg-black dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] sm:w-[30rem]  ">
+        <CardItem
+          translateZ="50"
+          className="text-xl font-bold text-neutral-600 dark:text-white"
+        >
           {title}
-        </h3>
-        <p className="text-lg font-bold text-gray-900 sm:text-xl">{price}</p>
-      </div>
-
-      <p className="mt-2 line-clamp-4 max-w-sm text-gray-700">{detail}</p>
-    </Link>
+        </CardItem>
+        <CardItem
+          as="p"
+          translateZ="60"
+          className="mt-2 max-w-sm text-sm text-neutral-500 dark:text-neutral-300"
+        >
+          {detail}
+        </CardItem>
+        <CardItem translateZ="100" className="mt-4 w-full">
+          <Image
+            src={firstImage}
+            height="1000"
+            width="1000"
+            className="h-60 w-full rounded-xl object-cover group-hover/card:shadow-xl"
+            alt="thumbnail"
+          />
+        </CardItem>
+        <div className="mt-20 flex items-center justify-between">
+          <CardItem
+            translateZ={20}
+            as="button"
+            className="rounded-xl px-4 py-2 text-xs font-normal dark:text-white"
+          >
+            {price}
+          </CardItem>
+          <Link href={`${baseURL}article/${slug}`}>
+            <CardItem
+              translateZ={20}
+              as="button"
+              className="rounded-xl bg-black px-4 py-2 text-xs font-bold text-white dark:bg-white dark:text-black"
+            >
+              + Info
+            </CardItem>
+          </Link>
+        </div>
+      </CardBody>
+    </CardContainer>
   );
 };
 
