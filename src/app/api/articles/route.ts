@@ -12,7 +12,7 @@ export const GET = async (req: Request) => {
         JSON.stringify({ message: "Missing environment variables" }),
         {
           status: 500,
-        }
+        },
       );
     }
 
@@ -20,12 +20,12 @@ export const GET = async (req: Request) => {
       client_email,
       undefined,
       private_key.split(String.raw`\n`).join("\n"),
-      ["https://www.googleapis.com/auth/spreadsheets"]
+      ["https://www.googleapis.com/auth/spreadsheets"],
     );
 
     const authorizeClient = () => {
       return new Promise<void>((resolve, reject) => {
-        client.authorize(err => {
+        client.authorize((err) => {
           if (err) {
             reject(err);
           } else {
@@ -51,18 +51,20 @@ export const GET = async (req: Request) => {
 
     // Filter rows where "vendido" and "pausado" are not equal to "TRUE"
     const filteredRows = rawRows.filter(
-      row =>
+      (row) =>
         row[headers.indexOf("titulo")] !== "" &&
-        row[headers.indexOf("vendido")] !== "TRUE" &&
-        row[headers.indexOf("pausado")] !== "TRUE"
+        row[headers.indexOf("vendido")].toLowerCase() !== "true" &&
+        row[headers.indexOf("pausado")].toLowerCase() !== "true",
     );
 
-    const rows: Record<string, string>[] = filteredRows.map(row => {
+    const rows: Record<string, string>[] = filteredRows.map((row) => {
       return row.reduce<Record<string, string>>((acc, cell, index) => {
         acc[headers[index]] = cell;
         return acc;
       }, {});
     });
+
+    console.log(rows);
 
     return new Response(
       JSON.stringify({
@@ -71,7 +73,7 @@ export const GET = async (req: Request) => {
       }),
       {
         status: 200,
-      }
+      },
     );
   } catch (error) {
     console.log(error);
