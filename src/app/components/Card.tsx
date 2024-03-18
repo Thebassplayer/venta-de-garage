@@ -28,10 +28,8 @@ const Card = ({ article, cardVersion = "small" }: CardProps) => {
         <Image height={100} width={100} src={firstImage} alt={title} />
       </div>
       <div className="ml-8 mt-4 flex w-3/4 flex-col gap-4">
-        <h3 className="line-clamp-1 text-xl font-bold text-gray-900 sm:text-xl">
-          {title}
-        </h3>
-        <p className="text-lg font-bold text-gray-900 sm:text-xl">{price}</p>
+        <h3 className="text-lg font-bold text-gray-900 sm:text-xl">{title}</h3>
+        <p className="text-gray-900 sm:text-xl">{price}</p>
       </div>
     </Link>
   ) : (
