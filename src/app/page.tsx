@@ -11,9 +11,9 @@ const whattsappShareMessage =
 
 export default function Home() {
   return (
-    <main className="relative flex w-full flex-col justify-center p-4">
+    <main className="relative flex w-full grow flex-col justify-center">
       <Header />
-      <div className="px-3 pb-3 pt-16">
+      <div className="flex h-full grow flex-col justify-between px-3 pt-20">
         <ProductCarrousell />
         <MainNav
           whatsappMessage={whatsappMessage}
