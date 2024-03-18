@@ -27,7 +27,7 @@ const Card = ({ article, cardVersion = "small" }: CardProps) => {
       <div className="relative flex w-1/4 items-center justify-center">
         <Image height={100} width={100} src={firstImage} alt={title} />
       </div>
-      <div className="ml-8 mt-4 flex w-3/4 flex-col gap-4">
+      <div className="my-auto ml-8 flex w-3/4 flex-col gap-4">
         <h3 className="text-lg font-bold text-gray-900 sm:text-xl">{title}</h3>
         <p className="text-gray-900 sm:text-xl">{price}</p>
       </div>
