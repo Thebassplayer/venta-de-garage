@@ -64,8 +64,6 @@ export const GET = async (req: Request) => {
       }, {});
     });
 
-    console.log(rows);
-
     return new Response(
       JSON.stringify({
         tableTitles: headers,
