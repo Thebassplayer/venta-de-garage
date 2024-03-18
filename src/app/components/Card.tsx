@@ -24,10 +24,10 @@ const Card = ({ article, cardVersion = "small" }: CardProps) => {
         `flex cursor-pointer flex-row rounded-sm border border-black bg-slate-100/70 p-2 shadow-sm transition-transform duration-300 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-xl hover:ring-4 hover:ring-orange-500 active:ring-violet-600`,
       )}
     >
-      <div className="relative flex items-center justify-center">
+      <div className="relative flex w-1/4 items-center justify-center">
         <Image height={100} width={100} src={firstImage} alt={title} />
       </div>
-      <div className="ml-8 mt-4 flex flex-col gap-4">
+      <div className="ml-8 mt-4 flex w-3/4 flex-col gap-4">
         <h3 className="line-clamp-1 text-xl font-bold text-gray-900 sm:text-xl">
           {title}
         </h3>
