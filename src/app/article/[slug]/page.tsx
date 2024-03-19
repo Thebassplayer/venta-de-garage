@@ -91,7 +91,7 @@ export default async function Article({
         <h1 className="px-4 pb-8 pt-10 text-center text-2xl font-bold md:py-6 md:text-4xl">
           {titulo || ""}
         </h1>
-        <div className="relative flex w-full flex-wrap justify-evenly gap-4 px-10">
+        <div className="relative grid w-full place-items-center items-center justify-center gap-4 px-10 md:grid-cols-2 lg:grid-cols-3">
           {!arrayOfImages[0] ? (
             <Image
               height={300}
