@@ -12,7 +12,9 @@ async function getData(): Promise<{ tableData: Article[] }> {
     throw new Error("Failed to fetch data");
   }
 
-  return res.json();
+  const tableData = await res.json();
+
+  return tableData;
 }
 
 export default async function ProductCarrousell() {
